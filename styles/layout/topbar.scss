@@ -1,0 +1,27 @@
+.topbar{
+  display: flex;
+  flex: 1 70%;
+  
+}
+
+
+.topbar-name{
+    margin-right:40px;
+
+    .topbar-company{
+        font-weight: bold;
+        
+    }
+}
+
+
+.topbar-search{
+  .topbar-search-box{
+    border:1px solid #000;
+    padding:4px 15px;
+    border-radius: 4px;
+    width:250px;
+    color:#909090;
+
+  }
+}

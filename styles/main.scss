@@ -1,7 +1,12 @@
 
 
-//=====vendors==========
-@import './vendors/all.scss';
+
+@import './vendors/all';
 
 
 @import './layout/all';
+
+@import './core/all';
+
+@import './abstracts/all';
+
