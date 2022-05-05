@@ -1,0 +1,149 @@
+.order{
+
+    background-color: #fff;
+    height: 100%;
+    width:400px;
+}
+
+
+.order-current{
+    border-bottom: 1px solid #eee;
+    display: flex;
+    padding:30px;
+    
+    .order-head{
+        font-weight:bold;
+        font-size:.8rem;
+        margin-right:auto;
+    }
+
+    .order-date{
+        color:#9f9f9f;
+        font-size:.8rem;
+    }
+}
+
+
+.order-item{
+  display: flex;
+  background-color: #F2F7FB;
+  padding:10px 10px;
+  margin:15px;
+  border-radius:8px;
+
+}
+.order-img{
+    width:50px;
+    margin-right:15px;
+}
+
+.order-text{
+    margin-right:auto;
+    .order-name{
+        font-weight:700;
+        font-size:.7rem;
+        text-transform:capitalize;
+    }
+
+    .order-price{
+        font-size:.7rem;
+    }
+
+}
+
+
+.order-controls{
+    display: flex;
+    flex-direction: column;
+
+
+    .order-remove{
+        font-size:.7rem;
+        font-weight: 700;
+        color:red;
+    }
+}
+
+.order-quantity{
+    display: flex;
+    margin-bottom:5px;
+
+    .order-quantity-minus,.order-quantity-plus{
+        background-color:#ffbb00cc;
+        border-radius: 50%;
+        width:20px;
+        height:20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:#fff;
+        font-weight:700;
+    }
+
+    .order-quantity-minus{
+        margin-right:5px;
+    }
+
+    .order-quantity-plus{
+        margin-left:5px;
+    }
+}
+
+
+.paysum{
+ padding:25px;
+}
+
+.paysum-subtotal{
+    margin-bottom:10px;
+    font-size:.8rem;
+
+    & .first{
+        margin-right:auto;
+    }
+
+    & .second{
+        font-weight:700;
+    }
+}
+
+.paysum-vat{
+    font-size:.8rem;
+    border-bottom: 2px dashed #b2adad;
+    & .first{
+        margin-right:auto;
+    }
+
+    & .second{
+        padding-bottom:20px;
+
+    }
+    
+}
+
+.paysum-total{
+    padding-top:15px;
+
+    & .first{
+        color:red;
+        margin-right:auto;
+    }
+
+    & .second{
+        font-weight: 700;
+    }
+}
+
+.orderbtn{
+    padding:25px;
+    
+    .orderbtn-btn{
+        text-align: center;
+        background-color: #ff5e00;
+        width:100%;
+        font-weight: 700;
+        font-size:.9rem;
+        padding:8px;
+        border-radius:4px;
+    }
+}

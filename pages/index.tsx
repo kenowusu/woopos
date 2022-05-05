@@ -7,6 +7,7 @@ import styles from '../styles/Home.module.css'
 //=================components=========================//
 import LeftSidebar from '../components/LeftSidebar';
 import TopBar from '../components/TopBar';
+import OrderBar from '../components/OrderBar';
 
 const Home: NextPage = () => {
   return (
@@ -23,7 +24,7 @@ const Home: NextPage = () => {
       </div>
       
       <div className="right">
-
+       <OrderBar/>
       </div>
 
       
