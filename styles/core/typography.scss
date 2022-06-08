@@ -1,9 +1,7 @@
-@font-face{
-    font-family: nunito;
-    src:url('https://use.typekit.net/cem1avc.css');
-}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap');
 
-
+$font-primary:Raleway,Sans-serif;
 body{
-    font-family: nunito,sans-serif;
+    font-family: $font-primary;
+    font-weight:400;
 }
