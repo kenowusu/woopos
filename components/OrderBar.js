@@ -1,5 +1,6 @@
 
 import {useState} from 'react';
+import {v4 as uuid} from 'uuid';
 import Image from 'next/image';
 const OrderBar = ()=>{
 
@@ -26,7 +27,7 @@ const OrderBar = ()=>{
 
 
             
-              return(<div className="order-item">
+              return(<div className="order-item" key={uuid()}>
                    <div className="order-img">
                        <img src={'/images/'+order.location} />
                    </div>

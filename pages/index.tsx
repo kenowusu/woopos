@@ -9,7 +9,22 @@ import LeftSidebar from '../components/LeftSidebar';
 import TopBar from '../components/TopBar';
 import OrderBar from '../components/OrderBar';
 
+
+/****************import *************/
+import api from '../wc/config';
+
+
+
+
 const Home: NextPage = () => {
+
+
+
+
+
+
+
+
   return (
     <div className="page-container h-full">
 

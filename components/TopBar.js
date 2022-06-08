@@ -5,7 +5,7 @@ const TopBar = ()=>{
     <div className="topbar">
       
       <div className="topbar-name">
-          <p class="topbar-company">Basilic Restaurant</p>
+          <p className="topbar-company">Basilic Restaurant</p>
       </div>
     
 
