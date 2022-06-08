@@ -1,12 +1,24 @@
 .page-container{
-    display: flex;
+ max-width: 1200px;
 
 }
 
 
 
-.middle{
-    
-    padding:30px;
+.page-first-row{
+    width:100%;
+    background-color: aliceblue;
+}
 
+.page-second-row{
+    display: flex;
+
+    //  align middle
+    .page-second-row-middle{
+        
+    }
+    // align right
+    .page-second-row-right{
+        margin-left:auto;
+    }
 }

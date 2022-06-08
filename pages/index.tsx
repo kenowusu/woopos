@@ -27,20 +27,29 @@ const Home: NextPage = () => {
 
   return (
     <div className="page-container h-full">
-
-
-     <div className="left">
-      <LeftSidebar/>
-     </div>
-
-
-      <div className="middle">
-        <TopBar/>
+      
+      {/* page first row */}
+      <div className="page-first-row">
+        <div className="">
+          <TopBar/>
+        </div>
       </div>
       
-      <div className="right">
-       <OrderBar/>
+      {/* page second row */}
+      <div className="page-second-row">
+        <div className="page-second-row-left">
+          <LeftSidebar/>
+        </div>
+        
+        <div className="page-second-row-middle">
+
+        </div>
+
+        <div className="page-second-row-right">
+          <OrderBar/>
+        </div>
       </div>
+      
 
       
    </div>
