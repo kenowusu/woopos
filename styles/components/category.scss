@@ -1,5 +1,6 @@
 .category-container{
-    padding-left:2em;
+    padding-left:1em;
+    
 }
 
 /***category-head***/
@@ -8,6 +9,7 @@
     font-weight:700;
     font-size:.8em;
     padding: 2em 0em 2em 0em;
+    padding-left:1em;
 
     .category-head-one{
         margin-right:auto;
@@ -21,6 +23,7 @@
     display: flex;
     overflow-x: scroll;
     padding:.5em 0;
+    padding-left:1em;
     -ms-overflow-style:none;
 
     //hide scrollbar
@@ -72,5 +75,74 @@
 
     .category-item-text{
         white-space:nowrap;
+    }
+}
+
+
+
+
+
+
+
+
+/*****************************category food**********************/
+.category-food-item-container{
+background-color: aliceblue;
+padding:1em 1em 1em 0;
+padding-left:1em;
+padding-right:1em;
+display:grid;
+width:800px;
+grid-template-columns: repeat(3,auto);
+grid-template-rows: repeat((auto,auto));
+grid-column-gap:15px;
+grid-row-gap:15px;
+}
+
+.category-food-item{
+    background-color: #fff;
+    padding:1em;
+    display: flex;
+    border-radius:8px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &.category-food-item__selected{
+        .category-food-option-btn{
+            background-color:#ff2e53;
+            color:#fff;
+        }
+    }
+
+    .category-food-img{
+        width:100px;
+        height:100px;
+        margin-bottom:1em;
+
+        img{
+            height:100%;
+            width:100%;
+            border-radius: 50%;
+        }
+    }
+    .category-food-name{
+        font-size:.9em;
+        font-weight:700;
+        margin-bottom:.5em;
+    }
+    .category-food-price{
+        font-size:.9em;
+        margin-bottom:1em;
+        
+    }
+
+    .category-food-option-btn{
+        display: inline-block;
+        border:1px solid pink;
+        padding:.4rem 3em;
+        border-radius:6px;
     }
 }
