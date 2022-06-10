@@ -1,18 +1,31 @@
-import {useState} from 'react';
+import {v4 as uuid} from 'uuid';
+import {useEffect, useState} from 'react';
 
+import FoodIconSvg from '../public/icons/food.svg';
+import api from '../wc/config';
 const Category = ()=>{
-
-    const [categories,selectCategories] = useState([
-        1,2,2,3,4,5,6,7
-    ]) 
+    const [categories,setCategories] = useState([]) 
 
     const [foodItems,setFoodItems] = useState([
-        1,2,3,4,5,6,7,3,4,5,2,5,2,
+        1,2,3,
     ])
+   
 
+    const getCategories = async()=>{
+     const getCats =   await api.get('products/categories');
+    
+     setCategories(getCats.data)
+     
+     console.log(getCats.data)
+    }
+    
+    
+   
+    
+    useEffect(()=>{
+        getCategories()
+    },[])
 
-
-    /*******selects category on click**/
     const selectCategory = (e)=>{
         const target = e.target;
         target.classList.add('category-item__selected')
@@ -36,20 +49,30 @@ const Category = ()=>{
             <div className="category-items-container">
                 <div className="category-items">
 
-                    
-
-                   {categories.map((category)=>{
-                    return(   
-                    /****** * category-item *******/
                     <button className="category-item" onClick={selectCategory}>
                         {/* /** category-item-img */}
                         <div className="category-item-img">
-                            <img src="https://i0.wp.com/www.savourous.com/wp-content/uploads/2020/07/keto-banku.jpg" 
-                            alt="category img" />
+                            {/* if no image for category, show food svg icon */}
+                           <FoodIconSvg/>
                         </div>
                         {/* /* category-item-img */}
                         <div className="category-item-text">
                             All Items
+                        </div>
+                    </button>
+
+                   {categories.map((category)=>{
+                    return(   
+                    /********** category-item *******/
+                    <button className="category-item" onClick={selectCategory} key={uuid()}>
+                        {/* /** category-item-img */}
+                        <div className="category-item-img">
+                            {/* if no image for category, show food svg icon */}
+                           {(category.image)? (<img src={category.image.src} alt="category img" />): <FoodIconSvg/>} 
+                        </div>
+                        {/* /* category-item-img */}
+                        <div className="category-item-text">
+                            {category.name}
                         </div>
                     </button>
                     )
@@ -71,7 +94,8 @@ const Category = ()=>{
                         
                         {foodItems.map((foodItem)=>{
                             return(
-                                <div className="category-food-item category-food-item__select" onClick={selectFoodItem}>
+                                <div className="category-food-item category-food-item__select" key={uuid()}
+                                 onClick={selectFoodItem}>
 
                                     <div className="category-food-img">
                                         <img src="https://img-global.cpcdn.com/recipes/5da646cc1c73a947/1200x630cq70/photo.jpg" alt="" />
