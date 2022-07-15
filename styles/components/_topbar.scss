@@ -1,9 +1,17 @@
 .topbar{
   display: flex;
   height: 100px;
-  background-color: #fff;
   align-items: center;
   border-bottom: 1px solid #e3e3e3;
+  padding:0 20px 0 20px;
+
+
+  & .restaurant-name{
+    & span{
+         font-size:2em;
+         font-weight: bold;
+          }
+  }
 }
 
 
@@ -20,31 +28,31 @@
 
 .topbar-search{
 
-  margin-right:auto;
-
-
 
   .topbar-search-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    width:800px;
     position: relative;
   }
 
   .search-icon-container{
     position:relative;
+    width:350px;
+    height:38px;
   }
   .topbar-search-box{
-    width:500px;
+    padding:7px 5px;
+    padding-left:30px;
+    width:100%;
+    height:100%;
     border:1px solid #e7e7e7;
-    padding:4px 15px;
     border-radius: 4px;
     color:#909090;
-    background-color: #f2f7fb;
+    background-color: #fff;
     cursor:pointer;
-    font-size:1em;
     text-transform: capitalize;
+    font-size:.9em;
 
   }
 
@@ -57,15 +65,15 @@
     width:30px;
     height: 100%;
     top:0;
-    right:0;
-    background-color: #ffbb00cc;
+    left:0;
 
     svg{
-      width:12px;
-      fill:#fff;
+      width:15px;
+      fill:grey;
+      stroke:#000;
       
-      path:{
-        
+      path{
+        stroke-width:10;
       }
     }
   }
@@ -76,4 +84,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.restaurant-name{
+  margin-right:auto;
 }

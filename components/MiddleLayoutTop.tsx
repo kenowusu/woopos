@@ -2,11 +2,18 @@ import SearchIconSvg from '../public/icons/search.svg';
 
 
 
-const TopBar = ()=>{
+export const MiddleLayoutTop = ()=>{
  return(
     <div className="topbar">
       
     
+     <div className='restaurant-name'>
+        <span>Basilic</span>
+     </div>
+
+
+
+
 
      {/* topbar search */}
      <div className="topbar-search">
@@ -26,9 +33,6 @@ const TopBar = ()=>{
 
 
 
-    <div className="topbar-new-order">
-      <button>Something here</button>
-    </div>
 
    </div>
 
@@ -38,4 +42,3 @@ const TopBar = ()=>{
 
 
 
-export default TopBar;
