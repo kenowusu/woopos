@@ -1,0 +1,37 @@
+
+
+.homelayout{
+    display: grid;
+    grid-template-columns: 85px 800px auto;
+    grid-template-rows:minmax(100vh,auto);
+}
+
+.homelayout-leftcol-container{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.homelayout-midcol-container{
+  
+  background-color: #eeeeee;
+
+  &  .homelayout-midcol{
+    *{
+       
+    }
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 80px 150px auto;
+    row-gap: 35px;
+  }
+}
+
+
+
+/***
+**.homelayout-rightcol-container
+**/
+.homelayout-rightcol-container{
+ 
+}

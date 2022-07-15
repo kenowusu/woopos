@@ -1,0 +1,56 @@
+.mainmenu-container{
+
+}
+
+.mainmenu{ 
+ display: flex;
+ flex-direction: column;
+ padding: 20px;
+ min-height: 100vh;
+}
+
+
+.mainmenu-logo{
+    height:130px;
+    svg{
+        width:47px;
+    }
+}
+
+/****.mainmenu-menu******/
+.mainmenu-menu{
+    margin-bottom:auto;
+    .mainmenu-nav{
+
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     row-gap:35px;
+     & .img{
+        
+        svg{
+            width:20px;
+            fill:#9b9b9b;
+        }
+     }
+
+     & .text{
+        display: none;
+     }
+    }
+}
+
+/********.mainmenu-logout******/
+.mainmenu-logout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor:pointer;
+    margin-top:auto;
+ 
+    
+    svg{
+        width:25px;
+        fill:#9b9b9b;
+    }
+}
