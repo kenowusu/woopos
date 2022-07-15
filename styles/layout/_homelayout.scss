@@ -13,7 +13,7 @@
 }
 
 .homelayout-midcol-container{
-  
+  padding-left:20px;
   background-color: #eeeeee;
 
   &  .homelayout-midcol{
@@ -22,7 +22,7 @@
     }
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 80px 150px auto;
+    grid-template-rows: 80px auto auto;
     row-gap: 35px;
   }
 }

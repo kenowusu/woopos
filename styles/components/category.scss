@@ -1,5 +1,5 @@
 .category-container{
-    padding-left:1em;
+  
     
 }
 
@@ -88,16 +88,12 @@
 
 /*****************************category food**********************/
 .category-food-item-container{
-background-color: aliceblue;
 padding:1em 1em 1em 0;
-padding-left:1em;
-padding-right:1em;
 display:grid;
-width:800px;
-grid-template-columns: repeat(3,auto);
+grid-template-columns: repeat(3,31%);
 grid-template-rows: repeat((auto,auto));
-grid-column-gap:15px;
-grid-row-gap:15px;
+grid-column-gap:3%;
+grid-row-gap:20px;
 }
 
 .category-food-item{

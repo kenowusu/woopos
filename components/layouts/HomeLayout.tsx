@@ -1,6 +1,6 @@
 export const HomeLayout = ({children})=>{
 
-    const [mainmenu,middlelayoutop,middlecategory] = children || [];
+    const [mainmenu,middlelayoutop,middlecategory,foodlist] = children || [];
     return(
         <div>
             <div className="homelayout">
@@ -33,7 +33,9 @@ export const HomeLayout = ({children})=>{
                         </div>
 
                         <div>
-                            <div></div>
+                            <div>
+                                {foodlist}
+                            </div>
                         </div>
 
                     </div>
