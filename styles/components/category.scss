@@ -22,8 +22,6 @@
     max-width: 100%;
     display: flex;
     overflow-x: scroll;
-    padding:.5em 0;
-    padding-left:1em;
     -ms-overflow-style:none;
 
     //hide scrollbar
@@ -33,9 +31,9 @@
 
     .category-item{
         margin-right:1em;
-        border-radius:80px;
-        padding:.5em 1em;
-        background-color:#f3f3f3;
+        border-radius:8px;
+        padding:.7em 1.5em;
+        background-color:#fff;
         border: 1px solid #f3f3f3;
         font-size:.8em;
         font-weight: 700;

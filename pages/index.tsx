@@ -8,7 +8,7 @@ import styles from '../styles/Home.module.css'
 import LeftSidebar from '../components/MainMenu';
 import TopBar from '../components/TopBar';
 import OrderBar from '../components/OrderBar';
-import Category from '../components/Category';
+import Category from '../components/MiddleLayoutCategory';
 
 /****************import *************/
 import api from '../wc/config';

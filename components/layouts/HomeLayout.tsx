@@ -1,6 +1,6 @@
 export const HomeLayout = ({children})=>{
 
-    const [mainmenu,middlelayoutop] = children || [];
+    const [mainmenu,middlelayoutop,middlecategory] = children || [];
     return(
         <div>
             <div className="homelayout">
@@ -22,18 +22,18 @@ export const HomeLayout = ({children})=>{
                 <div className="homelayout-midcol-container">
                     <div className="homelayout-midcol">
                       
-                        <div>
-                            <div>
+                        <div className="h-full">
+                            <div className="h-full">
                                 {middlelayoutop}
                             </div>
                         </div>
 
                         <div>
-                            <div><h1>yeah top</h1></div>
+                            <div>{middlecategory}</div>
                         </div>
 
                         <div>
-                            <div><h1>yeah top</h1></div>
+                            <div></div>
                         </div>
 
                     </div>
