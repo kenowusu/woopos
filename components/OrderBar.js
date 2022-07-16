@@ -17,7 +17,7 @@ export const OrderBar = ()=>{
 
             <div className="order-current">
                 <div className="order-head">Current Order</div>
-                <div className="order-date"><Moment format='dddd, Do MMMM, YYYY'>{new Date()}</Moment></div>
+                {/* <div className="order-date"><Moment format='dddd, Do MMMM, YYYY' date={new Date().getUTCDate}/></div> */}
             </div>
             
            

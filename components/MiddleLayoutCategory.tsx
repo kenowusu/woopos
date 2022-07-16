@@ -1,36 +1,34 @@
 import {v4 as uuid} from 'uuid';
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 
 import { CategorySkeleton } from './skeleton/CategorySkeleton';
 import FoodIconSvg from '../public/icons/food.svg';
 import api from './wc/config';
-
-
+import { FoodContext } from './contexts/foodContext';
+import { CategoryFoodsContainer } from './containers/CategoryFoodsContainer';
 
 export const MiddleLayoutCategory = ()=>{
+    
+    const {setFoods} = useContext(FoodContext)  
     const [categories,setCategories] = useState() 
+    
 
-    const [foodItems,setFoodItems] = useState([
-        1,2,3,
-    ])
    
 
-    const getCategories = async()=>{
+    const getFoodCategories = async()=>{
      const response =   await api.get('products/categories');
     
      setCategories(response.data)
-     console.log(response.data)
-     
     }
     
-    
-   
-    
-    useEffect(()=>{
-        getCategories()
-    },[])
+
+
+    /************
+     * getFoodsByCategories
+     */
 
     const selectCategory = (e)=>{
+        
         const targets = document.querySelectorAll('button.category-item');
         let target = e.target;
         let categoryId;
@@ -43,23 +41,47 @@ export const MiddleLayoutCategory = ()=>{
         }
         targets.forEach(targetItem=> targetItem.classList.remove('category-item__selected'))
         target.classList.add('category-item__selected');
-        console.log(categoryId)
+        return categoryId;
+    }
+    const getFoodsByCategories = async(e)=>{
+   
+        const categoryId = selectCategory(e)
         
+        try{
+            const params = {
+               category : categoryId || undefined
+            }
+            const response = await api.get('products',params);
+            setFoods(response.data)
+        }
+        catch(e){
+            console.log(e)
+        }
     }
     
+    
+    
+
+    useEffect(()=>{
+        getFoodCategories()
+    },[])
+
+
   
     return(
         <div className="category-container ">
 
          
-           
+            <CategoryFoodsContainer>
+               
+            </CategoryFoodsContainer>
             {/* category-items-container */}
             <div className="category-items-container">
                 <div className="category-items">
 
                     {!categories && <CategorySkeleton/>}
 
-                   { categories && <button className="category-item" onClick={selectCategory}>
+                   { categories && <button className="category-item" onClick={getFoodsByCategories}>
                         {/* /** category-item-img */}
                         <div className="category-item-img">
                             {/* if no image for category, show food svg icon */}
@@ -74,7 +96,7 @@ export const MiddleLayoutCategory = ()=>{
                    {categories && categories.map((category)=>{
                     return(   
                     /********** category-item *******/
-                    <button className="category-item" category_id={category.id} onClick={selectCategory} key={uuid()}>
+                    <button className="category-item" category_id={category.id} onClick={getFoodsByCategories} key={uuid()}>
                         {/* /** category-item-img */}
                         <div className="category-item-img">
                             {/* if no image for category, show food svg icon */}
