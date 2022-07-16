@@ -2,7 +2,8 @@ import Image from "next/image";
 
 
 
-export const FoodItem = ({food,key=''})=>{
+export const FoodItem = ({key,food,addToCart})=>{
+    
     return(
         <div className="category-food-item category-food-item__select" key={key} >
 
@@ -15,7 +16,7 @@ export const FoodItem = ({food,key=''})=>{
             {/* category-food-option */}
             <div className="category-food-option">
                 <div className="category-food-option-options"></div>
-                <button className="category-food-option-btn" food_id={food.id}>Add</button>
+                <button className="category-food-option-btn" food_id={food.id} onClick={addToCart}>Add</button>
             </div>
             {/* category-food-option  ends */}
         </div>    

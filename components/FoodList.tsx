@@ -1,7 +1,7 @@
 import {v4 as uuid} from 'uuid';
 import { FoodItem } from "./FoodItem"
 
-export const FoodList = ({foods})=>{
+export const FoodList = ({foods,addToCart})=>{
 
 
     return(
@@ -14,7 +14,7 @@ export const FoodList = ({foods})=>{
                         
                         {foods && foods.map((food)=>{
                             return(
-                                <FoodItem key={uuid()} food={food}/>
+                                <FoodItem key={uuid()} food={food} addToCart={addToCart}/>
                             )
                         })}
                     </div>

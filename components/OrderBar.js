@@ -1,17 +1,14 @@
 
-import {useState} from 'react';
+import {useContext, useState} from 'react';
 import {v4 as uuid} from 'uuid';
 import Image from 'next/image';
 import Moment from 'react-moment';
+import { FoodContext } from './contexts/foodContext';
 
 export const OrderBar = ()=>{
     
 
-    const [orders,setOrders] = useState([
-        {name:'waakye food', location:'fufu.png',price:'45'},
-        {name:'omo tuo with ab3nkwae', location:'waakye.png',price:'30'},
-        {name:'rice with stew and grilled chickedn with some toppings and extra cheese and a lot of shito', location:'waakye.png',price:'45'},
-    ])
+    const {orders} = useContext(FoodContext)
     return(
         <div className="order">
 
@@ -25,25 +22,25 @@ export const OrderBar = ()=>{
            <div className="order-items">
 
 
-              {orders.map((order)=>{
+              {orders && orders.map((order)=>{
 
 
 
             
               return(<div className="order-item" key={uuid()}>
                    <div className="order-img">
-                       <img src={'/images/'+order.location} />
+                       <img src={order.image} />
                    </div>
 
                    <div className="order-text">
                        <p className="order-name">{order.name}</p>
-                       <p className="order-price">GHS {order.price  }</p>
+                       <p className="order-price">GHS {order.price}</p>
                    </div>
 
                    <div className="order-controls">
                        <div className="order-quantity">
                            <button className="order-quantity-minus">-</button>
-                           <div className="order-quanity-quantity">3</div>
+                           <div className="order-quanity-quantity">{order.quantity}</div>
                            <button className="order-quantity-plus">+</button>
                        </div>
                        <button className="order-remove">Remove</button>
