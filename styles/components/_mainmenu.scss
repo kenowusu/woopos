@@ -27,11 +27,21 @@
 .mainmenu-menu{
     margin-bottom:auto;
     .mainmenu-nav{
-
+     li{
+        padding: 10px 13px;
+        border-radius: 5px;
+        &.active{
+            background-color: #fcdeea;
+   
+            svg{
+                fill:$clr-accent;
+            }
+        }
+     }
      display: flex;
      flex-direction: column;
      align-items: center;
-     row-gap:35px;
+     row-gap:30px;
      & .img{
         
         svg{

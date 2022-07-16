@@ -1,19 +1,26 @@
 .order{
-    align-self: flex-end;
+
     background-color: #fff;
-    height: 100%;
     width:400px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 
 .order-current{
-    border-bottom: 1px solid #eee;
     display: flex;
-    padding:30px;
+    align-items:flex-end;
+    height: 80px;
+    border-bottom: 1px solid #eee;
+    padding-left:15px;
+   
+    
     
     .order-head{
+        font-size:1.5em;
         font-weight:bold;
-        font-size:.8rem;
+    
         margin-right:auto;
     }
 
@@ -24,6 +31,9 @@
 }
 
 
+.order-items{
+    margin-bottom: auto;
+}
 .order-item{
   display: flex;
   background-color: #F2F7FB;
@@ -35,14 +45,19 @@
 .order-img{
     width:50px;
     margin-right:15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .order-text{
     margin-right:auto;
     .order-name{
+        max-width:200px;
         font-weight:700;
         font-size:.7rem;
         text-transform:capitalize;
+        margin-bottom:9px;
     }
 
     .order-price{
@@ -55,6 +70,7 @@
 .order-controls{
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
 
     .order-remove{
@@ -92,6 +108,7 @@
 
 .paysum{
  padding:25px;
+
 }
 
 .paysum-subtotal{
@@ -139,6 +156,7 @@
     
     .orderbtn-btn{
         text-align: center;
+        color:#fff;
         background-color: #ff5e00;
         width:100%;
         font-weight: 700;

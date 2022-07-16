@@ -2,19 +2,22 @@
 import {useState} from 'react';
 import {v4 as uuid} from 'uuid';
 import Image from 'next/image';
-const OrderBar = ()=>{
+import Moment from 'react-moment';
+
+export const OrderBar = ()=>{
+    
 
     const [orders,setOrders] = useState([
-        {name:'waakye food', location:'fufu.jpeg',price:'45'},
-        {name:'omo tuo with ab3nkwae', location:'tuo.jpg',price:'30'},
-        {name:'rice with stew and grilled chickedn', location:'waakye.jpg',price:'45'},
+        {name:'waakye food', location:'fufu.png',price:'45'},
+        {name:'omo tuo with ab3nkwae', location:'waakye.png',price:'30'},
+        {name:'rice with stew and grilled chickedn with some toppings and extra cheese and a lot of shito', location:'waakye.png',price:'45'},
     ])
     return(
         <div className="order">
 
             <div className="order-current">
                 <div className="order-head">Current Order</div>
-                <div className="order-date">Sunday, 28 Oct, 2021</div>
+                <div className="order-date"><Moment format='dddd, Do MMMM, YYYY'>{new Date()}</Moment></div>
             </div>
             
            
@@ -87,4 +90,3 @@ const OrderBar = ()=>{
     )
 }
 
-export default OrderBar;

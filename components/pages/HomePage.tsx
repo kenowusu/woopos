@@ -3,6 +3,7 @@ import { MainMenu } from "../MainMenu"
 import { MiddleLayoutTop } from "../MiddleLayoutTop";
 import { MiddleLayoutCategory } from "../MiddleLayoutCategory";
 import { FoodList } from "../FoodList";
+import {OrderBar} from "../OrderBar";
 
 
 export const HomePage = ()=>{
@@ -13,6 +14,7 @@ export const HomePage = ()=>{
               <MiddleLayoutTop/>
               <MiddleLayoutCategory/>
               <FoodList/>
+              <OrderBar/>
             </HomeLayout>
         </>
     )

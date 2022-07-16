@@ -22,7 +22,7 @@ export const MainMenu = ()=>{
             <div className='mainmenu-menu'>
 
                 <ul className='mainmenu-nav'>
-                    <li><Link href="#"><a><span className='img'><HomeSvg/></span><span className='text'>sdf</span></a></Link></li>
+                    <li  className='active'><Link href="/"><a><span className='img'><HomeSvg/></span><span className='text'>sdf</span></a></Link></li>
                     <li><Link href="#"><a><span className='img'><DashboardSvg/></span><span className='text'>sdf</span></a></Link></li>
                     <li><Link href="#"><a><span className='img'><SettingSvg/></span><span className='text'>sdf</span></a></Link></li>
 

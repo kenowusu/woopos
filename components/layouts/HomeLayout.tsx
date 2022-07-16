@@ -1,6 +1,6 @@
 export const HomeLayout = ({children})=>{
 
-    const [mainmenu,middlelayoutop,middlecategory,foodlist] = children || [];
+    const [mainmenu,middlelayoutop,middlecategory,foodlist,orderbar] = children || [];
     return(
         <div>
             <div className="homelayout">
@@ -48,7 +48,7 @@ export const HomeLayout = ({children})=>{
                 {/* right column */}
                 <div className="homelayout-rightcol-container">
                     <div className="homelayout-rightcol">
-                        <h3></h3>
+                        {orderbar}
                     </div>
                 </div>
 
