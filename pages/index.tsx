@@ -4,14 +4,9 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 
-//=================components=========================//
-import LeftSidebar from '../components/MainMenu';
-import TopBar from '../components/TopBar';
-import OrderBar from '../components/OrderBar';
-import Category from '../components/MiddleLayoutCategory';
 
 /****************import *************/
-import api from '../wc/config';
+import api from '../components/wc/config';
 import { HomePage } from '../components/pages/HomePage';
 
 

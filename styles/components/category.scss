@@ -22,6 +22,7 @@
     max-width: 100%;
     display: flex;
     overflow-x: scroll;
+    position:absolute;
     -ms-overflow-style:none;
 
     //hide scrollbar
@@ -39,9 +40,7 @@
         font-weight: 700;
         display: flex;
         align-items: center;
-        transition-property: border;
-        transition-duration: .1s;
-        transition-timing-function: ease-in-out;
+
 
         //category-item__selected
         &.category-item__selected{
@@ -94,6 +93,7 @@ grid-template-columns: repeat(3,31%);
 grid-template-rows: repeat((auto,auto));
 grid-column-gap:3%;
 grid-row-gap:20px;
+
 }
 
 .category-food-item{

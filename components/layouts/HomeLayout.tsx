@@ -28,11 +28,11 @@ export const HomeLayout = ({children})=>{
                             </div>
                         </div>
 
-                        <div>
+                        <div >
                             <div>{middlecategory}</div>
                         </div>
 
-                        <div>
+                        <div style={{marginTop:"35px"}}>
                             <div>
                                 {foodlist}
                             </div>

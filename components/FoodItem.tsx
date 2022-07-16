@@ -1,4 +1,4 @@
-export const FoodItem = ({food,key})=>{
+export const FoodItem = ({food,key=''})=>{
     return(
         <div className="category-food-item category-food-item__select" key={key}
          >
