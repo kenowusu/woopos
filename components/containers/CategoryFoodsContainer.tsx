@@ -1,4 +1,4 @@
-import React,{useEffect, useContext} from "react"
+import React,{useEffect,useState, useContext} from "react"
 
 
 import api from "../wc/config";
@@ -12,6 +12,8 @@ export const CategoryFoodsContainer = ({children})=>{
     orders,
     setOrders
   } = useContext(FoodContext)
+
+  const [count,setCount] = useState(1)
   
   const getFoods = async()=>{
     try{
@@ -22,7 +24,7 @@ export const CategoryFoodsContainer = ({children})=>{
     }
   }
 
-  const addToCart=(e)=>{
+  const addToOrder=(e)=>{
     const target = e.target;
     const foodId = target.getAttribute('food_id');
     
@@ -49,11 +51,16 @@ export const CategoryFoodsContainer = ({children})=>{
       orders[orderIndex].quantity += 1;
      }
     
+     setCount(count+1);
     
   
    
   }
-
+  
+  useEffect(()=>{
+    setOrders([...orders])
+    console.log('orders was changed')
+  },[count])
   useEffect(()=>{
    getFoods()
   },[])
@@ -61,7 +68,7 @@ export const CategoryFoodsContainer = ({children})=>{
       <>
         {React.Children.map(children,child=>{
           if(React.isValidElement(child)){
-            return React.cloneElement(child,{foods,addToCart});
+            return React.cloneElement(child,{foods,addToOrder});
           }
           
           return child;

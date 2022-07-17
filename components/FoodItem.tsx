@@ -2,10 +2,10 @@ import Image from "next/image";
 
 
 
-export const FoodItem = ({key,food,addToCart})=>{
+export const FoodItem = ({food,addToOrder})=>{
     
     return(
-        <div className="category-food-item category-food-item__select" key={key} >
+        <div className="category-food-item category-food-item__select"  >
 
             <div className="category-food-img">
             {food.images && <Image src={food.images[0].src} width={80} height={80} />}
@@ -16,7 +16,7 @@ export const FoodItem = ({key,food,addToCart})=>{
             {/* category-food-option */}
             <div className="category-food-option">
                 <div className="category-food-option-options"></div>
-                <button className="category-food-option-btn" food_id={food.id} onClick={addToCart}>Add</button>
+                <button className="category-food-option-btn" food_id={food.id} onClick={addToOrder}>Add</button>
             </div>
             {/* category-food-option  ends */}
         </div>    
