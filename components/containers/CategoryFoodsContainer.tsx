@@ -32,6 +32,7 @@ export const CategoryFoodsContainer = ({children})=>{
     
     const foodIndex = foods.findIndex(item=> item.id == foodId);
     const currentFood = foods[foodIndex];
+
     let curOrder = {
       id: currentFood.id,
       quantity:1,
@@ -39,7 +40,9 @@ export const CategoryFoodsContainer = ({children})=>{
       price:currentFood.regular_price,
       image:currentFood.images[0].src
     }
-
+    if(currentFood.on_sale){
+      curOrder.price = currentFood.sale_price;
+    }
     /******
      * check if food id is already in order 
      * if already in order increase quantity

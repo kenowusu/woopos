@@ -11,7 +11,7 @@ export const FoodItem = ({food,addToOrder})=>{
             <Image src={food.images[0].src || "public/images/no-image.jpg"} width={204} height={120} />
             </div>
             <div className="category-food-name">{food.name}</div>
-            <div className="category-food-price">GHS {food.regular_price}</div>
+            <div className="category-food-price">GHS {food.on_sale ? food.sale_price :food.regular_price}</div>
             
             {/* category-food-option */}
             <div className="category-food-option">

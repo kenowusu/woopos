@@ -4,6 +4,7 @@ import {v4 as uuid} from 'uuid';
 import Image from 'next/image';
 import Moment from 'react-moment';
 import { FoodContext } from './contexts/foodContext';
+import api from './wc/config';
 
 export const OrderBar = ()=>{
     
@@ -17,6 +18,25 @@ export const OrderBar = ()=>{
     } = useContext(FoodContext);
     
 
+    const placeOrder = async()=>{
+        let lineItems = [];
+
+        orders.forEach(orderItem=>{
+            lineItems.push({product_id:orderItem.id,quantity:orderItem.quantity})
+        })
+
+        const data = {
+            line_items:lineItems,
+            status:'completed'
+        }
+        console.log('order has been placed')
+        try{
+        const response = await api.post('orders',data);
+        console.log(response)
+        }catch(e){
+            console.log(e)
+        }
+    }
 
     const removeOrder =(e)=> {
         const target = e.target;
@@ -122,7 +142,7 @@ export const OrderBar = ()=>{
 
 
         <div className="orderbtn">
-            <button className="orderbtn-btn">Place Order</button>
+            <button className="orderbtn-btn" onClick={placeOrder}>Place Order</button>
         </div>
 
 
