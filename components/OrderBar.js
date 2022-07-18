@@ -8,7 +8,13 @@ import { FoodContext } from './contexts/foodContext';
 export const OrderBar = ()=>{
     
    
-    const {orders,setOrders,orderChanged,setOrderChanged} = useContext(FoodContext)
+    const {orders,
+            setOrders,
+            orderChanged,
+            setOrderChanged,
+            orderTotal,
+            setOrderTotal,
+    } = useContext(FoodContext);
     
 
 
@@ -45,7 +51,7 @@ export const OrderBar = ()=>{
         }
     }
 
-    
+
     return(
         <div className="order">
 
@@ -103,16 +109,12 @@ export const OrderBar = ()=>{
 
             <div className="paysum-subtotal flex">
                 <p className="first">Subtotal</p>
-                <p className="second">GHS 50</p>
+                <p className="second">GHS {orderTotal}</p>
             </div>
-            <div className="paysum-vat flex">
-                <p className="first">GHS 0</p>
-                <p className="second">GHS 0</p>
-
-            </div>
+           
             <div className="paysum-total flex">
              <p className="first">Total</p>
-             <p className="second">GHS 55</p>
+             <p className="second">GHS {orderTotal}</p>
             </div>
 
         

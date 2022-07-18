@@ -121,14 +121,12 @@ grid-row-gap:20px;
         display: flex;
         justify-content: center;
         align-items:center;
-        padding:20px 0;
         border-radius:8px;
 
         img{
-            height:80px;
-            width:80px;
+      
             
-            border-radius: 50%;
+          border-radius:8px;
         }
     }
     .category-food-name{

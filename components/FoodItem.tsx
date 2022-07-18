@@ -8,7 +8,7 @@ export const FoodItem = ({food,addToOrder})=>{
         <div className="category-food-item category-food-item__select"  >
 
             <div className="category-food-img">
-            {food.images && <Image src={food.images[0].src} width={80} height={80} />}
+            <Image src={food.images[0].src || "public/images/no-image.jpg"} width={204} height={120} />
             </div>
             <div className="category-food-name">{food.name}</div>
             <div className="category-food-price">GHS {food.regular_price}</div>

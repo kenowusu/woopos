@@ -10,10 +10,12 @@ export const CategoryFoodsContainer = ({children})=>{
     foods,
     setFoods,
     orders,
-    setOrders
+    setOrders,
+    orderChanged,
+    setOrderChanged,
   } = useContext(FoodContext)
 
-  const [count,setCount] = useState(1)
+  
   
   const getFoods = async()=>{
     try{
@@ -51,7 +53,7 @@ export const CategoryFoodsContainer = ({children})=>{
       orders[orderIndex].quantity += 1;
      }
     
-     setCount(count+1);
+     setOrderChanged(orderChanged+1);
     
   
    
@@ -60,7 +62,7 @@ export const CategoryFoodsContainer = ({children})=>{
   useEffect(()=>{
     setOrders([...orders])
     console.log('orders was changed')
-  },[count])
+  },[orderChanged])
   useEffect(()=>{
    getFoods()
   },[])
