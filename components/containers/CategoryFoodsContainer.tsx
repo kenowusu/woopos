@@ -9,6 +9,8 @@ export const CategoryFoodsContainer = ({children})=>{
   const {
     foods,
     setFoods,
+    foodsClone,
+    setFoodsClone,
     orders,
     setOrders,
     orderChanged,
@@ -21,6 +23,7 @@ export const CategoryFoodsContainer = ({children})=>{
     try{
     const response = await api.get('products');
      setFoods(response.data)
+     setFoodsClone(response.data.slice(0))
     }catch(e){
       console.log(e)
     }
