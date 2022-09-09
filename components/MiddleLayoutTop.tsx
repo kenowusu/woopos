@@ -18,7 +18,18 @@ export const MiddleLayoutTop = ()=>{
     //  return food.name.toLowerCase().includes(searchKey.toLowerCase())})
      const regexSearchKey = new RegExp(`\^${searchKey.toLowerCase()}`) 
      return regexSearchKey.test(food.name.toLowerCase())})
-     foodResults.length> 0 ? setFoods(foodResults) : setFoods(foodsClone);
+
+     // if typing in search and search returning nothing
+     if(searchKey.length > 0 && foodResults.length < 1){
+      setFoods([])
+      //if typing in search and search returned something
+     }else if(searchKey.length > 0 && foodResults.length > 0){
+      setFoods(foodResults)
+      //if search cleared
+     }else if(searchKey.length < 1){
+      setFoods(foodsClone);
+     }
+  
      
      console.log(foodsClone)
      console.log(foodResults)
