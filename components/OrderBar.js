@@ -18,6 +18,14 @@ export const OrderBar = ()=>{
     } = useContext(FoodContext);
     
 
+    const placesorder = ()=>{
+        printJS({printable: 'receipt',
+         type: 'html', 
+         css:'./print.css'
+         })
+         console.log(orders)
+    }
+
     const placeOrder = async()=>{
         let lineItems = [];
 
@@ -96,8 +104,8 @@ export const OrderBar = ()=>{
                    </div>
 
                    <div className="order-text">
-                       <p className="order-name">{order.name}</p>
-                       <p className="order-price">GHS {order.price}</p>
+                       <div className="order-name">{order.name}</div>
+                       <div className="order-price">GHS {order.price}</div>
                    </div>
 
                    <div className="order-controls">
@@ -128,13 +136,13 @@ export const OrderBar = ()=>{
         <div className="paysum">
 
             <div className="paysum-subtotal flex">
-                <p className="first">Subtotal</p>
-                <p className="second">GHS {orderTotal}</p>
+                < div className="first">Subtotal</div>
+                <div className="second">GHS {orderTotal}</div>
             </div>
            
             <div className="paysum-total flex">
-             <p className="first">Total</p>
-             <p className="second">GHS {orderTotal}</p>
+             <div className="first">Total</div>
+             <div className="second">GHS {orderTotal}</div>
             </div>
 
         
@@ -142,7 +150,10 @@ export const OrderBar = ()=>{
 
 
         <div className="orderbtn">
-            <button className="orderbtn-btn" onClick={placeOrder}>Place Order</button>
+            <button className="orderbtn-btn" 
+            onClick={placesorder}
+            //onClick={placeOrder}
+            >Place Order</button>
         </div>
 
 

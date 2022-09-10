@@ -1,0 +1,82 @@
+.receipt{
+    min-width:55mm;
+    max-width:55mm;
+ }
+ 
+
+ @media print{
+    #receipt{
+        height:400px;
+    }
+ }
+
+ .receipt-header{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+ }
+ 
+ 
+.receipt-head{
+   font-size:.8em;
+}
+
+.receipt-body{
+    font-size:.6em;
+    
+}
+
+.receipt-body td{
+    padding:6px 0;
+}
+.receipt-price{
+    min-width: 56px;
+    max-width: 56px;
+}
+ .receipt-img-cont{
+     width:100%;
+     display: flex;
+     justify-content: center;
+     padding:10px 0;
+     
+ }
+ 
+ 
+ .receipt-img{
+     width:140px !important;
+ }
+ 
+ .dot-up{
+    border-top: 1px dashed #000;
+ }
+ .dotted{
+     border-bottom: 1px dashed #000;
+     
+ } 
+ .receipt-receipt{
+     width:100%;
+     font-weight: bold;
+     text-align: center;
+     font-size:2em;
+ }
+
+ .receipt-total{
+    font-weight: bold;
+    font-size:1.3em;
+ }
+
+ .flex-divide{
+    width:100%;
+    display: flex;
+
+ }
+ .receipt-total-cont{
+    padding:10px 0px;
+ }
+ .receipt-total-cont>div{
+    margin-bottom:10px;
+ }
+ .flex-divide>div:first-child{
+    margin-right:auto;
+}
