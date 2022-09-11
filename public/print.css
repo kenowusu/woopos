@@ -4,11 +4,14 @@
  }
  
 
- @media print{
-    #receipt{
-        height:400px;
-    }
+ .receipt-datetime{
+    display: flex;
  }
+
+ .receipt-datetime>div:first-child{
+    margin-right:auto;
+ }
+
 
  .receipt-header{
      display: flex;
@@ -35,10 +38,12 @@
     max-width: 56px;
 }
  .receipt-img-cont{
+
      width:100%;
      display: flex;
      justify-content: center;
      padding:10px 0;
+     padding-top:0;
      
  }
  
@@ -79,4 +84,10 @@
  }
  .flex-divide>div:first-child{
     margin-right:auto;
+}
+
+.receipt-thankyou{
+    text-align: center;
+    font-size:1.5em;
+    padding:10px;
 }
