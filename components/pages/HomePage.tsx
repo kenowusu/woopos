@@ -12,7 +12,7 @@ export const HomePage = ()=>{
     return(
         <>
         <FoodProvider>
-          <script src="/js/app.js"></script>
+          {/* <script src="/js/app.js"></script> */}
           <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
             <HomeLayout>
               <MainMenu/>

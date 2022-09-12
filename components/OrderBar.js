@@ -139,7 +139,7 @@ export const OrderBar = ()=>{
                 < div className="first">Subtotal</div>
                 <div className="second">GHS {orderTotal}</div>
             </div>
-           
+           <div className='paysum-divider'></div>
             <div className="paysum-total flex">
              <div className="first">Total</div>
              <div className="second">GHS {orderTotal}</div>
@@ -147,7 +147,10 @@ export const OrderBar = ()=>{
 
         
         </div>  
-
+        
+        <div className='order-customer-amount-cont'>
+            <input type="text" className='order-customer-amount w-full' />
+        </div>
 
         <div className="orderbtn">
             <button className="orderbtn-btn" 

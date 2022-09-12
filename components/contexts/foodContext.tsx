@@ -1,5 +1,9 @@
 import React,{createContext,useEffect,useState} from 'react';
 
+import {roundTo} from 'round-to';
+
+
+
 export const FoodContext = createContext();
 
 
@@ -10,7 +14,7 @@ export const FoodProvider = ({children})=>{
     const [foodsClone,setFoodsClone] = useState([]);
     const [orders,setOrders] = useState([]);
     const [orderChanged,setOrderChanged] = useState(0);
-    const [orderTotal,setOrderTotal] = useState(0);
+    const [orderTotal,setOrderTotal] = useState(roundTo(0,2));
 
 
     const values  = {
