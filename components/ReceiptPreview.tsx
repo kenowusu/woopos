@@ -13,8 +13,7 @@ export const ReceiptPreview = ()=>{
             <div className="receipt" id="receipt">
                 
                 <div className="receipt-datetime">
-                    <div>{current_date}</div>
-                    <div>{current_time}</div>
+       
                 </div>
               
                 <div className="receipt-header">
