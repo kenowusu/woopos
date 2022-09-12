@@ -15,7 +15,8 @@ export const FoodProvider = ({children})=>{
     const [orders,setOrders] = useState([]);
     const [orderChanged,setOrderChanged] = useState(0);
     const [orderTotal,setOrderTotal] = useState(roundTo(0,2));
-
+    const [customerAmount,setCustomerAmount] = useState(0);
+    const [customerChange,setCustomerChange] = useState(0)
 
     const values  = {
         foods,
@@ -28,6 +29,10 @@ export const FoodProvider = ({children})=>{
         setOrderChanged,
         orderTotal,
         setOrderTotal,
+        customerAmount,
+        setCustomerAmount,
+        customerChange,
+        setCustomerChange
     }
 
     const calcOrderTotal = ()=>{

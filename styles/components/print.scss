@@ -3,6 +3,15 @@
     max-width:55mm;
  }
  
+ .receipt-preview{
+    height: 80px;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: flex;
+    align-items:flex-end;
+    border-bottom: 1px solid #eee;
+    padding-bottom:5px;
+ }
 
  .receipt-datetime{
     display: flex;

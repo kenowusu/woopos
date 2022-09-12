@@ -2,14 +2,26 @@ import { useContext } from "react";
 import Image from "next/image"
 import { FoodContext } from "./contexts/foodContext"
 
+import {roundTo} from 'round-to';
+
 export const ReceiptPreview = ()=>{
-    const {orders} = useContext(FoodContext);
+    const {orders,
+        orderTotal,
+        customerAmount,
+        customerChange
+
+    
+    } = useContext(FoodContext);
 
     const date = new Date();
 	const current_date =   date.getDate()  +"-" +(date.getMonth()+1) + "-" + date.getFullYear();
     const  current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+    
+    
     return(
         <div>
+
+            <div className="receipt-preview"><span>Receipt Preview </span></div>
             <div className="receipt" id="receipt">
                 
                 <div className="receipt-datetime">
@@ -55,25 +67,29 @@ export const ReceiptPreview = ()=>{
                          </tbody>  
                        </table>
                         
-                      <div className="dot-up  dotted receipt-total-cont">
+                     {orders.length > 0 &&  (
+                     <>
+                     <div className="dot-up  dotted receipt-total-cont">
 
                       <div className="flex-divide">
                                     <div className="receipt-total">Total</div>
-                                    <div className="receipt-total">GHS 50.00</div>
+                                    <div className="receipt-total">GHS {orderTotal}</div>
                                 </div>
                                 <div className="flex-divide">
                                     <div className="receipt-cash">Cash</div>
-                                    <div className="receipt-cash">GHS 100.00</div>
+                                    <div className="receipt-cash">GHS {customerAmount}</div>
                                 </div>
                                 <div className="flex-divide">
                                     <div className="receipt-change">Change</div>
-                                    <div className="receipt-change"> GHS 50.00</div>
+                                    <div className="receipt-change"> GHS {roundTo(customerAmount - orderTotal,2)}</div>
                                 </div>
                
                       </div>
                       <div className="receipt-thankyou">
                         Thank You
                       </div>
+                      </>
+                      )}
                         
                     
                 </div>

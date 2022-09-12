@@ -15,6 +15,8 @@ export const OrderBar = ()=>{
             setOrderChanged,
             orderTotal,
             setOrderTotal,
+            customerAmount,
+            setCustomerAmount
     } = useContext(FoodContext);
     
 
@@ -139,6 +141,8 @@ export const OrderBar = ()=>{
                 < div className="first">Subtotal</div>
                 <div className="second">GHS {orderTotal}</div>
             </div>
+
+
            <div className='paysum-divider'></div>
             <div className="paysum-total flex">
              <div className="first">Total</div>
@@ -149,7 +153,10 @@ export const OrderBar = ()=>{
         </div>  
         
         <div className='order-customer-amount-cont'>
-            <input type="text" className='order-customer-amount w-full' />
+            <input type="text" className='order-customer-amount w-full' 
+             type="number" placeholder='Enter Customer Amount'
+            onChange={(e)=>setCustomerAmount(e.target.value)}
+            />
         </div>
 
         <div className="orderbtn">

@@ -51,7 +51,7 @@ export const HomeLayout = ({children})=>{
                     <div className="flex">
                         <div className="homelayout-rightcol"
                         style={{
-                            marginRight:'40px'
+                            marginRight:'60px'
                         }}
                         >
                             {orderbar}
