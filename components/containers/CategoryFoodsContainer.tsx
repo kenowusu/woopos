@@ -67,7 +67,7 @@ export const CategoryFoodsContainer = ({children})=>{
   
   useEffect(()=>{
     setOrders([...orders])
-    console.log('orders was changed')
+    
   },[orderChanged])
   useEffect(()=>{
    getFoods()

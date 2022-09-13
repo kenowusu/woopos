@@ -10,7 +10,7 @@ import { CategoryFoodsContainer } from './containers/CategoryFoodsContainer';
 export const MiddleLayoutCategory = ()=>{
     
     const {setFoods} = useContext(FoodContext)  
-    const [categories,setCategories] = useState() 
+    const [categories,setCategories] = useState([]) 
     
 
    
@@ -27,10 +27,27 @@ export const MiddleLayoutCategory = ()=>{
      * getFoodsByCategories
      */
 
-    const selectCategory = (e)=>{
+    const selectCategory = async(e)=>{
         
+        // get all  buttons with class category-item
         const targets = document.querySelectorAll('button.category-item');
+        
+        // get  clicked button which fired click
         let target = e.target;
+
+
+        targets.forEach(targetItem=>{
+            //remove the category-item__selected class from all buttons 
+            targetItem.classList.remove('category-item__selected')
+
+            // add category-item__selected to target button
+            target.classList.add('category-item__selected');
+        })
+        
+
+        /*Make sure you get the id from the button tag
+        *even if you clicked the content or the img inside the button
+        */
         let categoryId;
         for(let i = 0;i<4;i++){
            if(target.classList.contains('category-item')){
@@ -39,13 +56,11 @@ export const MiddleLayoutCategory = ()=>{
            }
            target = target.parentNode;
         }
-        targets.forEach(targetItem=> targetItem.classList.remove('category-item__selected'))
-        target.classList.add('category-item__selected');
-        return categoryId;
-    }
-    const getFoodsByCategories = async(e)=>{
-   
-        const categoryId = selectCategory(e)
+
+        
+
+        
+
         
         try{
             const params = {
@@ -57,13 +72,23 @@ export const MiddleLayoutCategory = ()=>{
         catch(e){
             console.log(e)
         }
+    
     }
+
+
+
+    // const getFoodsByCategories = async(e)=>{
+   
+    //      selectCategory(e)
+
+    // }
     
     
     
 
     useEffect(()=>{
         getFoodCategories()
+        console.log('re-rendering yes')
     },[])
 
 
@@ -79,9 +104,9 @@ export const MiddleLayoutCategory = ()=>{
             <div className="category-items-container">
                 <div className="category-items">
 
-                    {!categories && <CategorySkeleton/>}
-
-                   { categories && <button className="category-item" onClick={getFoodsByCategories}>
+                    {categories.length < 1 ? <CategorySkeleton/> :
+                   <>
+                    <button className="category-item category-item__selected" category_id ='dsf'onClick={selectCategory}>
                         {/* /** category-item-img */}
                         <div className="category-item-img">
                             {/* if no image for category, show food svg icon */}
@@ -91,12 +116,12 @@ export const MiddleLayoutCategory = ()=>{
                         <div className="category-item-text">
                             All Items
                         </div>
-                    </button>}
+                    </button>
 
-                   {categories && categories.map((category)=>{
+                   {categories.map((category)=>{
                     return(   
                     /********** category-item *******/
-                    <button className="category-item" category_id={category.id} onClick={getFoodsByCategories} key={uuid()}>
+                    <button className="category-item" category_id={category.id} onClick={selectCategory} key={uuid()}>
                         {/* /** category-item-img */}
                         <div className="category-item-img">
                             {/* if no image for category, show food svg icon */}
@@ -107,11 +132,11 @@ export const MiddleLayoutCategory = ()=>{
                             {category.name}
                         </div>
                     </button>
-                    )}
-
-                   )}
-
-
+                    )})}
+                  
+                   
+                   </>
+                  }
                 </div>
             </div>
 

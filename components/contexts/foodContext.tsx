@@ -49,7 +49,6 @@ export const FoodProvider = ({children})=>{
     useEffect(()=>{
         setOrders([...orders]);
         calcOrderTotal();
-        console.log('order from context')
     },[orderChanged])
     return(
         <FoodContext.Provider value={values}>
