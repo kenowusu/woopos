@@ -14,7 +14,7 @@ export const FoodList = ({foods,addToOrder})=>{
                         
                         {foods && foods.map((food)=>{
                             return(
-                                <FoodItem key={uuid()} food={food} addToOrder={addToOrder}/>
+                                <FoodItem key={food.id} food={food} addToOrder={addToOrder}/>
                             )
                         })}
                     </div>

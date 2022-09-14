@@ -23,7 +23,7 @@ export const CategoryFoodsContainer = ({children})=>{
     try{
     const response = await api.get('products');
      setFoods(response.data)
-     setFoodsClone(response.data.slice(0))
+    //  setFoodsClone(response.data.slice(0))
     }catch(e){
       console.log(e)
     }
