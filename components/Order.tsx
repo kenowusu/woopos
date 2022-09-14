@@ -174,7 +174,7 @@ export const Order = ()=>{
                 <button className="orderbtn-btn" 
                 onClick={placesorder}
                 //onClick={placeOrder}
-                >Place Order</button>
+                >Print Receipt</button>
             </div>
 
 

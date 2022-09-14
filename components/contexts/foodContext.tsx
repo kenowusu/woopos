@@ -11,6 +11,7 @@ export const FoodContext = createContext();
 
 export const FoodProvider = ({children})=>{
     const [foods,setFoods] = useState();
+    const [categories,setCategories] = useState([])
     const [foodsClone,setFoodsClone] = useState([]);
     const [orders,setOrders] = useState([]);
     const [orderChanged,setOrderChanged] = useState(0);
@@ -21,6 +22,8 @@ export const FoodProvider = ({children})=>{
     const values  = {
         foods,
         setFoods,
+        categories,
+        setCategories,
         foodsClone,
         setFoodsClone,
         orders,

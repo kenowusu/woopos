@@ -1,3 +1,5 @@
+
+/****my imports ****/
 import { HomeLayout } from "../layouts/HomeLayout"
 import { MainMenu } from "../MainMenu"
 import { BrandAndSearch } from "../BrandAndSearch";
@@ -7,6 +9,11 @@ import {Order} from "../Order";
 import { FoodProvider } from "../contexts/foodContext";
 import { CategoryFoodsContainer } from "../containers/CategoryFoodsContainer";
 import { Receipt } from "../Receipt";
+import { CategoryContainer } from "../containers/CategoryContainer";
+import { FoodCategory } from "../FoodCategory";
+
+
+
 
 export const HomePage = ()=>{
     return(
@@ -17,7 +24,10 @@ export const HomePage = ()=>{
             <HomeLayout>
               <MainMenu/>
               <BrandAndSearch/>
-              <MiddleLayoutCategory/>
+              <CategoryContainer>
+                  <FoodCategory/>
+              </CategoryContainer>
+
               <CategoryFoodsContainer>
                 <FoodList/>
               </CategoryFoodsContainer>

@@ -1,5 +1,5 @@
 //** package imports */
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useContext } from 'react';
 import {v4 as uuid} from 'uuid';
 
 
@@ -7,28 +7,18 @@ import {v4 as uuid} from 'uuid';
 import api from './wc/config';
 import { CategorySkeleton } from './skeleton/CategorySkeleton';
 import FoodIconSvg from '../public/icons/food.svg'
+import { FoodContext } from './contexts/foodContext';
 
 
 
 
 
 
-/* component ***/
-export const FoodCategory = ()=>{
-    //** states  */
-    const [categories,setCategories] = useState([]) 
-    
 
-   
-//======================functions============================ */
-    /**Fetch food categories */
-    const getFoodCategories = async()=>{
-     const response =   await api.get('products/categories');
-    
-     setCategories(response.data)
-    }
-    
-
+export const FoodCategory = ({categories=[]})=>{
+ /** use food context  */
+ const {setFoods} = useContext(FoodContext)
+//====================== component functions============================ */
 
      /**
       * Select Category function 
@@ -75,7 +65,7 @@ export const FoodCategory = ()=>{
 
             //this is what causing the button outline error apparently
             setFoods(response.data)
-            //console.log(response.data)
+           
         }
         catch(e){
             console.log(e)
@@ -87,13 +77,6 @@ export const FoodCategory = ()=>{
 
 
     
-    
-
-    useEffect(()=>{
-        getFoodCategories()
-        console.log('re-rendering yes')
-    },[])
-
 
 
     //===========================category component return =====================
