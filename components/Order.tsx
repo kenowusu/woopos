@@ -18,7 +18,8 @@ import api from './wc/config';
 export const Order = ()=>{
     
    /** use food context */
-    const {orders,
+    const { 
+            orders,
             setOrders,
             orderChanged,
             setOrderChanged,
@@ -57,11 +58,25 @@ export const Order = ()=>{
     }
 
     const removeOrder =(e)=> {
+        //clicked order item
         const target = e.target;
-        const orderId = target.getAttribute('order_id');
 
-        setOrders(orders.filter(orderItem=> orderId != orderItem.id))
+        //get id of current clicked order
+        const orderId = target.getAttribute('order_id');
+        
+        //return new orders without the recent removed one(the clicked one)
+        const newOrders = orders.filter(orderItem=> orderItem.id != orderId)
+        
+       
+        //set new orders 
+        setOrders(newOrders)
+        
+        //let food context know orders ch
+        setOrderChanged(orderChanged-1);
     }
+
+
+
     const changeQuantity = (e)=>{
         const target = e.target;
         const orderId = target.getAttribute('order_id')

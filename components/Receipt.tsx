@@ -54,7 +54,7 @@ export const Receipt = ()=>{
                           
                             {orders && orders.map(order=>{
                               return(
-<tr>
+                                <tr key={order.id}>                            
                                 <td>{order.quantity}x</td>
                                 <td>{order.name}</td>
                                 <td className="receipt-price">GHS {order.price}</td>
