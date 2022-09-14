@@ -1,25 +1,33 @@
-
+/* pacakge imports ***/
 import {useContext, useEffect, useState} from 'react';
 import {v4 as uuid} from 'uuid';
-import Image from 'next/image';
-import Moment from 'react-moment';
+
+
+
+
+
+
+/*** my imports */
 import { FoodContext } from './contexts/foodContext';
 import api from './wc/config';
 
-export const OrderBar = ()=>{
+
+
+
+/** order component */
+export const Order = ()=>{
     
-   
+   /** use food context */
     const {orders,
             setOrders,
             orderChanged,
             setOrderChanged,
             orderTotal,
-            setOrderTotal,
-            customerAmount,
             setCustomerAmount
     } = useContext(FoodContext);
     
 
+//=================================functions=================================
     const placesorder = ()=>{
         printJS({printable: 'receipt',
          type: 'html', 
@@ -80,26 +88,26 @@ export const OrderBar = ()=>{
             setOrderChanged(orderChanged-1)
         }
     }
+//======================================================end functions============
+     
 
 
+    /** Order Component */
     return(
+        
         <div className="order">
+            
 
+            {/* Current order text */}
             <div className="order-current">
                 <div className="order-head">Current Order</div>
                 {/* <div className="order-date"><Moment format='dddd, Do MMMM, YYYY' date={new Date().getUTCDate}/></div> */}
             </div>
             
            
-
+            {/* Display orders */}
            <div className="order-items">
-
-
               {orders && orders.map((order)=>{
-
-
-
-            
               return(<div className="order-item" key={uuid()}>
                    <div className="order-img">
                        <img src={order.image} />
@@ -127,44 +135,47 @@ export const OrderBar = ()=>{
                </div>)
 
              })}
-           
-           
-           
-
            </div>
 
 
+        
+            {/* Display Subtotal and Total */}
+            <div className="paysum">
+                {/* subotal */}
+                <div className="paysum-subtotal flex">
+                    < div className="first">Subtotal</div>
+                    <div className="second">GHS {orderTotal}</div>
+                </div>
 
-        <div className="paysum">
+            {/* divider */}
+            <div className='paysum-divider'></div>
 
-            <div className="paysum-subtotal flex">
-                < div className="first">Subtotal</div>
-                <div className="second">GHS {orderTotal}</div>
+                {/* Total */}
+                <div className="paysum-total flex">
+                    <div className="first">Total</div>
+                    <div className="second">GHS {orderTotal}</div>
+                </div>
+            </div> 
+
+
+
+            {/* Enter Amount Customer Paid to change */}
+            <div className='order-customer-amount-cont'>
+                <input type="text" className='order-customer-amount w-full' 
+                type="number" placeholder='Enter Customer Amount'
+                onChange={(e)=>setCustomerAmount(e.target.value)}
+                />
             </div>
 
 
-           <div className='paysum-divider'></div>
-            <div className="paysum-total flex">
-             <div className="first">Total</div>
-             <div className="second">GHS {orderTotal}</div>
+
+            {/* Print Receipt Button */}
+            <div className="orderbtn">
+                <button className="orderbtn-btn" 
+                onClick={placesorder}
+                //onClick={placeOrder}
+                >Place Order</button>
             </div>
-
-        
-        </div>  
-        
-        <div className='order-customer-amount-cont'>
-            <input type="text" className='order-customer-amount w-full' 
-             type="number" placeholder='Enter Customer Amount'
-            onChange={(e)=>setCustomerAmount(e.target.value)}
-            />
-        </div>
-
-        <div className="orderbtn">
-            <button className="orderbtn-btn" 
-            onClick={placesorder}
-            //onClick={placeOrder}
-            >Place Order</button>
-        </div>
 
 
 

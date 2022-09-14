@@ -4,7 +4,7 @@ import { FoodContext } from "./contexts/foodContext"
 
 import {roundTo} from 'round-to';
 
-export const ReceiptPreview = ()=>{
+export const Receipt = ()=>{
     const {orders,
         orderTotal,
         customerAmount,

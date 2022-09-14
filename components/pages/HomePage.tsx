@@ -1,12 +1,12 @@
 import { HomeLayout } from "../layouts/HomeLayout"
 import { MainMenu } from "../MainMenu"
-import { MiddleLayoutTop } from "../MiddleLayoutTop";
+import { BrandAndSearch } from "../BrandAndSearch";
 import { MiddleLayoutCategory } from "../MiddleLayoutCategory";
 import { FoodList } from "../FoodList";
-import {OrderBar} from "../OrderBar";
+import {Order} from "../Order";
 import { FoodProvider } from "../contexts/foodContext";
 import { CategoryFoodsContainer } from "../containers/CategoryFoodsContainer";
-import { ReceiptPreview } from "../ReceiptPreview";
+import { Receipt } from "../Receipt";
 
 export const HomePage = ()=>{
     return(
@@ -16,14 +16,14 @@ export const HomePage = ()=>{
           <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
             <HomeLayout>
               <MainMenu/>
-              <MiddleLayoutTop/>
+              <BrandAndSearch/>
               <MiddleLayoutCategory/>
               <CategoryFoodsContainer>
                 <FoodList/>
               </CategoryFoodsContainer>
              
-              <OrderBar/>
-              <ReceiptPreview/>
+              <Order/>
+              <Receipt/>
             </HomeLayout>
         </FoodProvider>
         </>

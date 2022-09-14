@@ -4,7 +4,7 @@ import SearchIconSvg from '../public/icons/search.svg';
 import { FoodContext } from './contexts/foodContext';
 
 
-export const MiddleLayoutTop = ()=>{
+export const BrandAndSearch = ()=>{
   
   const [searchKey,setSearchKey] = useState('')
   const {foods,setFoods,foodsClone} = useContext(FoodContext)
