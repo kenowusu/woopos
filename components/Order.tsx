@@ -35,27 +35,34 @@ export const Order = ()=>{
          css:'./print.css'
          })
          console.log(orders)
+
+
+         let lineItems = [];
+
+         orders.forEach(orderItem=>{
+             lineItems.push({product_id:orderItem.id,quantity:orderItem.quantity})
+         })
+ 
+         const data = {
+             line_items:lineItems,
+             status:'completed'
+         }
+         console.log('order has been placed')
+         try{
+         const request  =  api.post('orders',data);
+               request.then((response)=>{
+                setOrders([])
+                setOrderChanged(orderChanged+1);
+                
+
+               })
+        
+         }catch(e){
+             console.log(e)
+         }
     }
 
-    const placeOrder = async()=>{
-        let lineItems = [];
 
-        orders.forEach(orderItem=>{
-            lineItems.push({product_id:orderItem.id,quantity:orderItem.quantity})
-        })
-
-        const data = {
-            line_items:lineItems,
-            status:'completed'
-        }
-        console.log('order has been placed')
-        try{
-        const response = await api.post('orders',data);
-        console.log(response)
-        }catch(e){
-            console.log(e)
-        }
-    }
 
     const removeOrder =(e)=> {
         //clicked order item
@@ -176,7 +183,7 @@ export const Order = ()=>{
 
             {/* Enter Amount Customer Paid to change */}
             <div className='order-customer-amount-cont'>
-                <input type="text" className='order-customer-amount w-full' 
+                <input className='order-customer-amount w-full' 
                 type="number" placeholder='Enter Customer Amount'
                 onChange={(e)=>setCustomerAmount(e.target.value)}
                 />

@@ -57,7 +57,7 @@ export const BrandAndSearch = ()=>{
             {/* search input field */}
             <input type="text" className="topbar-search-box" 
             placeholder="search recipe"
-            onChange={searchFood}
+            // onChange={searchFood}
        
             />
 

@@ -67,7 +67,21 @@ export const CategoryFoodsContainer = ({children})=>{
   
   useEffect(()=>{
     setOrders([...orders])
+
+    // //select print reciept button
+    const button = document.querySelector('.orderbtn-btn');
+
+
+    // //if orders are empty, disable the print receipt button 
+    if(orders.length < 1){
+      button.disabled = true;
+      button.style.backgroundColor = "#a2a2a2";
     
+    }else{
+      //if orders not empty, re-enable it
+      button.disabled = false;
+      button.style.backgroundColor = "#ff5e00";
+    }
   },[orderChanged])
   useEffect(()=>{
    getFoods()

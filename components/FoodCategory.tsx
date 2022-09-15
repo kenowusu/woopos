@@ -88,7 +88,7 @@ export const FoodCategory = ({categories=[]})=>{
 
                     {categories.length < 1 ? <CategorySkeleton/> :
                    <>
-                    <button className="category-item category-item__selected" category_id ='dsf'onClick={selectCategory}>
+                    <button className="category-item category-item__selected" onClick={selectCategory}>
                         {/* /** category-item-img */}
                         <div className="category-item-img">
                             {/* if no image for category, show food svg icon */}

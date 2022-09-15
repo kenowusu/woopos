@@ -19,6 +19,7 @@ export const HomePage = ()=>{
     return(
         <>
         <FoodProvider>
+          {/* comment out this script to disable service worker */}
           {/* <script src="/js/app.js"></script> */}
           <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
             <HomeLayout>

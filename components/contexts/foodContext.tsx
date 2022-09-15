@@ -16,7 +16,7 @@ export const FoodProvider = ({children})=>{
     const [orders,setOrders] = useState([]);
     const [orderChanged,setOrderChanged] = useState(0);
     const [orderTotal,setOrderTotal] = useState(roundTo(0,2));
-    const [customerAmount,setCustomerAmount] = useState(0);
+    const [customerAmount,setCustomerAmount] = useState('');
     const [customerChange,setCustomerChange] = useState(0)
 
     const values  = {
@@ -49,10 +49,25 @@ export const FoodProvider = ({children})=>{
     }, 0);
      setOrderTotal(sum)
     }
+
+
+
     useEffect(()=>{
         setOrders([...orders]);
         calcOrderTotal();
     },[orderChanged])
+
+    
+    useEffect(()=>{
+        // if(!customerAmount){
+        //     return
+        // }
+       
+        // const convertCustomerAmount  = customerAmount.toFixed(2)
+        // console.log(convertCustomerAmount)
+
+    },[customerAmount])
+
     return(
         <FoodContext.Provider value={values}>
             {children}
