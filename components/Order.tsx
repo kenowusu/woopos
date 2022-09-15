@@ -24,6 +24,7 @@ export const Order = ()=>{
             orderChanged,
             setOrderChanged,
             orderTotal,
+            customerAmount,
             setCustomerAmount
     } = useContext(FoodContext);
     
@@ -53,6 +54,7 @@ export const Order = ()=>{
                request.then((response)=>{
                 setOrders([])
                 setOrderChanged(orderChanged+1);
+                setCustomerAmount('')
                 
 
                })
@@ -184,6 +186,7 @@ export const Order = ()=>{
             {/* Enter Amount Customer Paid to change */}
             <div className='order-customer-amount-cont'>
                 <input className='order-customer-amount w-full' 
+                value={customerAmount}
                 type="number" placeholder='Enter Customer Amount'
                 onChange={(e)=>setCustomerAmount(e.target.value)}
                 />
