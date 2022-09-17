@@ -39,9 +39,15 @@ self.addEventListener('fetch',(event)=>{
             const response = await fetch(event.request)
 
             //update the cache with the newly fetched data
-            await cache.put(event.request,response.clone())
+            //only clone GET requests 
+            if(event.request.method == "GET"){
+                await cache.put(event.request,response.clone())
+            }
+            
 
-            // return the original response for user to able to see
+            // // return the original response for user to able to see
+            // return response;
+       
             return response;
         }
     }())
