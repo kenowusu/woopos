@@ -46,10 +46,10 @@ export const HomeLayout = ({children})=>{
 
 
                 {/* right column */}
-                <div className="homelayout-rightcol-container">
+                <div className="homelayout-rightcol-container h-full">
 
-                    <div className="flex">
-                        <div className="homelayout-rightcol"
+                    <div className="flex h-full">
+                        <div className="homelayout-rightcol h-full"
                         style={{
                             marginRight:'60px'
                         }}

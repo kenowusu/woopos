@@ -1,7 +1,8 @@
 import {v4 as uuid} from 'uuid';
 import { FoodItem } from "./FoodItem"
+import { FoodSkeleton } from './skeleton/FoodSkeleton';
 
-export const FoodList = ({foods,addToOrder})=>{
+export const FoodList = ({foods=[],addToOrder})=>{
 
 
     return(
@@ -12,7 +13,9 @@ export const FoodList = ({foods,addToOrder})=>{
                 
                     <div className="category-food-item-container">
                         
-                        {foods && foods.map((food)=>{
+                        {foods.length < 1 ? <FoodSkeleton/> 
+                                :
+                          foods.map((food)=>{
                             return(
                                 <FoodItem key={food.id} food={food} addToOrder={addToOrder}/>
                             )

@@ -119,14 +119,17 @@ export const Order = ()=>{
     /** Order Component */
     return(
         
-        <div className="order">
+        <div className="order h-full">
             
 
             {/* Current order text */}
-            <div className="order-current">
-                <div className="order-head">Current Order</div>
-                {/* <div className="order-date"><Moment format='dddd, Do MMMM, YYYY' date={new Date().getUTCDate}/></div> */}
+          
+            <div className="order-head">
+                <span className='head'>Current Order</span>
+                <span className='orderid'>#907653</span>
             </div>
+               
+         
             
            
             {/* Display orders */}

@@ -33,7 +33,7 @@ export const MainMenu = ()=>{
             </div>
 
             <div className='mainmenu-logout'>
-              <LogoutSvg/>
+            <div><Link href="#"><a><span className='img'><LogoutSvg/></span><span className='text'>Logout</span></a></Link></div>
             </div>
             
         </div>
