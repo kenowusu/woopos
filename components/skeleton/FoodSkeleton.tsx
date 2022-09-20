@@ -2,16 +2,20 @@ import styled from 'styled-components';
 import Skeleton from "react-loading-skeleton";
 
 const SkeletonContainer = styled.div`
- width:600px;
+ width:580px;
 
 &>span{
     width:100%;
     display:grid;
     grid-template-columns: repeat(3,25%);
-    grid-template-rows: repeat((auto,auto));S
+    grid-template-rows: repeat(auto,auto);
     grid-column-gap:8%;
     grid-row-gap:20px;
-    align-items:start;
+
+    & br{
+        display:none;
+    }
+    
     
 }
 `
