@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@woocommerce/woocommerce-rest-api": "^1.0.1",
+    "@woocommerce/woocommerce-rest-api": "https://github.com/woocommerce/woocommerce-rest-api-js-lib#master",
     "next": "12.1.6",
     "print-js": "^1.6.0",
     "react": "18.1.0",

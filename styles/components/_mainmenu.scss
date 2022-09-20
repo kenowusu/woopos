@@ -13,6 +13,12 @@
 
 
 .mainmenu-logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    &> div{
+        width:50px;
+    }
     padding-top:40px;
     display:flex;
     align-items: flex-end;
@@ -36,6 +42,10 @@
             svg{
                 fill:$clr-accent;
             }
+
+            & .text{
+                color:$clr-accent;
+            }
         }
      }
      display: flex;
@@ -43,6 +53,8 @@
      align-items: center;
      row-gap:30px;
      & .img{
+        display: flex;
+        justify-content: center;
         
         svg{
             width:15px;
@@ -51,7 +63,10 @@
      }
 
      & .text{
-        display: none;
+        //display: none;
+        font-weight: bold;
+        font-size:.6em;
+
      }
     }
 }

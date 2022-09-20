@@ -39,11 +39,6 @@ export const BrandAndSearch = ()=>{
     <div className="topbar">
       
     
-     <div className='restaurant-name'>
-        <span>Basilic</span>
-     </div>
-
-
 
 
 
@@ -56,7 +51,7 @@ export const BrandAndSearch = ()=>{
            
             {/* search input field */}
             <input type="text" className="topbar-search-box" 
-            placeholder="search recipe"
+            placeholder="search Menu"
             // onChange={searchFood}
        
             />
