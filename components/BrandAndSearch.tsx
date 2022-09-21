@@ -1,5 +1,5 @@
 
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import SearchIconSvg from '../public/icons/search.svg';
 import { FoodContext } from './contexts/foodContext';
 
@@ -10,37 +10,43 @@ export const BrandAndSearch = ()=>{
   const {foods,setFoods,foodsClone} = useContext(FoodContext)
 
 
-  const searchFood = (e)=>{
-   console.log(e.target.value)
-   
-   const foodResults = foods.filter((food)=>{
-    setSearchKey(e.target.value)
-    //  return food.name.toLowerCase().includes(searchKey.toLowerCase())})
-     const regexSearchKey = new RegExp(`\^${searchKey.toLowerCase()}`) 
-     return regexSearchKey.test(food.name.toLowerCase())})
+  const searchFood = (e)=>{ 
 
-     // if typing in search and search returning nothing
-     if(searchKey.length > 0 && foodResults.length < 1){
-      setFoods([])
-      //if typing in search and search returned something
-     }else if(searchKey.length > 0 && foodResults.length > 0){
-      setFoods(foodResults)
-      //if search cleared
-     }else if(searchKey.length < 1){
-      setFoods(foodsClone);
-     }
-  
+    //if if search is empty, do nothing
+    if(searchKey == " "){
+      return
+    }else{
+       //search food list  and return the ones with similar names as the search key
+     const foodResults = foods.filter((food)=>{
+      return food.name.toLowerCase().includes(searchKey.toLowerCase())
+     })
      
-     console.log(foodsClone)
-     console.log(foodResults)
+   
+       //if typing in search and search returned something
+       if(searchKey.length > 0 && searchKey !="" && foodResults.length > 0){
+       setFoods(foodResults)
+
+       //if search cleared
+      }else if(!searchKey.length){
+       setFoods(foodsClone);
+    
+      }
+
+
+
+    }
   }
+
+ 
+  useEffect(()=>{
+    searchFood()
+  },[searchKey])
+
+
 
  return(
     <div className="topbar">
-      
-    
-
-
+  
 
      {/* topbar search */}
      <div className="topbar-search">
@@ -52,7 +58,7 @@ export const BrandAndSearch = ()=>{
             {/* search input field */}
             <input type="text" className="topbar-search-box" 
             placeholder="search Menu"
-            // onChange={searchFood}
+            onChange={(e)=>setSearchKey(e.target.value)}
        
             />
 

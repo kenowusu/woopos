@@ -10,7 +10,7 @@ export const FoodContext = createContext();
 
 
 export const FoodProvider = ({children})=>{
-    const [foods,setFoods] = useState();
+    const [foods,setFoods] = useState([]);
     const [categories,setCategories] = useState([])
     const [foodsClone,setFoodsClone] = useState([]);
     const [orders,setOrders] = useState([]);
