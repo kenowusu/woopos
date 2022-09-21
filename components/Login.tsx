@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import Cookies from 'universal-cookie';
-
+import Image from 'next/image'
 const cookies = new Cookies()
 
 const cashierUsername = process.env.NEXT_PUBLIC_cashier_username;
@@ -40,7 +40,8 @@ export const Login = ()=>{
     return(
         <div className="auth">
             <div className="w-full">
-
+{/* 
+                <div><Image src="/images/basilic_logo.png" width={263} height={133}/></div> */}
                 <div className="auth-container w-full">
                     
                     <div className="auth-error">{error}</div>

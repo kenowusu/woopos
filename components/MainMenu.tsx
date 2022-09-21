@@ -1,4 +1,8 @@
 import Link from 'next/link';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies()
+
 
 //==================import images=======================//
 import LogoSvg from '../public/icons/logo.svg'; 
@@ -9,7 +13,13 @@ import LogoutSvg from '../public/icons/logout.svg';
 
 export const MainMenu = ()=>{
 
+    
+    const logout  = (e)=>{
+        e.preventDefault();
+        cookies.remove('userauth');
+        window.location.href = '/login';
 
+    }
 
     return(
        <div className='mainmenu-container'>
@@ -33,7 +43,7 @@ export const MainMenu = ()=>{
             </div>
 
             <div className='mainmenu-logout'>
-            <div><Link href="#"><a><span className='img'><LogoutSvg/></span><span className='text'>Logout</span></a></Link></div>
+            <div><Link href="#"><a onClick={logout}><span className='img'><LogoutSvg/></span><span className='text'>Logout</span></a></Link></div>
             </div>
             
         </div>
