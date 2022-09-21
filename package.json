@@ -19,6 +19,7 @@
     "round-to": "^6.0.0",
     "sass": "^1.51.0",
     "styled-components": "^5.3.5",
+    "universal-cookie": "^4.0.4",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

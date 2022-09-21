@@ -6,6 +6,19 @@
     align-items: center;
 }
 
+.auth-error{
+    background-color: red;
+    font-size:1em;
+    color:#fff;
+    padding:6px 16px;
+    border-radius:6px;
+    position:absolute;
+    left:25px;
+    bottom:25px;
+
+    transition:display .3s ease-in-out;
+
+}
 .auth-container{
     display: flex;
     justify-content: center;
