@@ -8,10 +8,10 @@ export const FoodList = ({foods=[],addToOrder})=>{
     return(
         <>
                
-         <div className="category-food-container">
-                <div className="category-food">
+         <div className="food-list">
+                <div className="">
                 
-                    <div className="category-food-item-container">
+                    <div className="food-list-container">
                         
                         {foods.length < 1 ? <FoodSkeleton/> 
                                 :

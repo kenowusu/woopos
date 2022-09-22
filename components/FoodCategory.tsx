@@ -21,42 +21,43 @@ export const FoodCategory = ({categories=[]})=>{
 //====================== component functions============================ */
 
      /**
-      * Select Category function 
-      * Function runs when a food category is clicked 
+      * runs when a food category is clicked 
       * It gets category id and fetch foods based on the category id
       */
     const selectCategory = async(e)=>{
         
+        //set foods empty to get loading effect
+        setFoods([])
         // get all  buttons with class category-item
-        const targets = document.querySelectorAll('button.category-item');
+        const previousSelectBtn = document.querySelector('.category-item.category-item__selected');
         
         // get  clicked button which fired click
         let target = e.target;
 
-
-        targets.forEach(targetItem=>{
-            //remove the category-item__selected class from all buttons 
-            targetItem.classList.remove('category-item__selected')
-
-            // add category-item__selected to target button
-            target.classList.add('category-item__selected');
-        })
         
-
-        /*Make sure you get the id from the button tag
-        *even if you clicked the content or the img inside the button
-        */
-        let categoryId;
+        // get exact clicked button
         for(let i = 0;i<7;i++){
-           if(target.classList.contains('category-item')){
-             categoryId = target.getAttribute('category_id');
-            break;
-           }
-           target = target.parentNode;
-        }
-
-    
+            if(target.classList.contains('category-item')){
+              //categoryId = target.getAttribute('category_id');
+             break;
+            }
+            target = target.parentNode;
+         }
         
+        //get categoryId from target
+        const categoryId = target.getAttribute('category_id')
+        
+        //remove highlight from previous selected button
+        if(previousSelectBtn){
+            previousSelectBtn.classList.remove('category-item__selected')
+        }
+        //add highlight to current selected button
+        target.classList.add('category-item__selected')
+        
+
+
+
+        // fetch foods with category Id
         try{
             const params = {
                category : categoryId || undefined
@@ -64,6 +65,7 @@ export const FoodCategory = ({categories=[]})=>{
             const response = await api.get('products',params);
 
             //this is what causing the button outline error apparently
+            console.log(response.data)
             setFoods(response.data)
            
         }
@@ -86,24 +88,16 @@ export const FoodCategory = ({categories=[]})=>{
             <div className="category-items-container">
                 <div className="category-items">
 
-                    {categories.length < 1 ? <CategorySkeleton/> :
+                    {categories.length === 0 ?  <CategorySkeleton/> :
                    <>
-                    <button className="category-item category-item__selected" onClick={selectCategory}>
-                        {/* /** category-item-img */}
-                        <div className="category-item-img">
-                            {/* if no image for category, show food svg icon */}
-                           <FoodIconSvg/>
-                        </div>
-                        {/* /* category-item-img */}
-                        <div className="category-item-text">
-                            All Items
-                        </div>
-                    </button>
+ 
 
-                   {categories.map((category)=>{
+                   {categories.map((category,index)=>{
+                    let elementClass = (index === 0) ? "category-item category-item__selected" : "category-item";
                     return(   
                     /********** category-item *******/
-                    <button className="category-item" category_id={category.id} onClick={selectCategory} key={uuid()}>
+                    
+                    <button className={elementClass}  category_id={category.id} onClick={selectCategory} key={uuid()}>
                         {/* /** category-item-img */}
                         <div className="category-item-img">
                             {/* if no image for category, show food svg icon */}

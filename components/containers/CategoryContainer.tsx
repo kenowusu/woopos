@@ -11,7 +11,8 @@ import { FoodContext } from "../contexts/foodContext";
 export const CategoryContainer = ({children})=>{
   const {
     categories,
-    setCategories
+    setCategories,
+    setCategoryId
   } = useContext(FoodContext)
 
   
@@ -21,6 +22,9 @@ export const CategoryContainer = ({children})=>{
         const response =   await api.get('products/categories');
        
         setCategories(response.data)
+        
+        setCategoryId(response.data[0].id)
+      
     }
        
 

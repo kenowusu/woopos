@@ -35,7 +35,7 @@ export const Order = ()=>{
          type: 'html', 
          css:'./print.css'
          })
-         console.log(orders)
+        
 
 
          let lineItems = [];

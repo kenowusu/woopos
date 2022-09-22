@@ -15,18 +15,25 @@ export const CategoryFoodsContainer = ({children})=>{
     setOrders,
     orderChanged,
     setOrderChanged,
+    categoryId,
+    setCategoryId,
   } = useContext(FoodContext)
 
   
   
   const getFoods = async()=>{
-    try{
-    const response = await api.get('products');
-     setFoods(response.data)
-     setFoodsClone([...response.data])
-    //  setFoodsClone(response.data.slice(0))
-    }catch(e){
-      console.log(e)
+    if(categoryId != null){
+      try{
+        const params = {
+          category : categoryId
+       }
+       const response = await api.get('products',params);
+         setFoods(response.data)
+         setFoodsClone([...response.data])
+    
+        }catch(e){
+          console.log(e)
+        }
     }
   }
 
@@ -86,7 +93,7 @@ export const CategoryFoodsContainer = ({children})=>{
   },[orderChanged])
   useEffect(()=>{
    getFoods()
-  },[])
+  },[categoryId])
     return(
       <>
         {React.Children.map(children,child=>{
