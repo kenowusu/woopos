@@ -17,7 +17,7 @@ import { FoodContext } from './contexts/foodContext';
 
 export const FoodCategory = ({categories=[]})=>{
  /** use food context  */
- const {setFoods} = useContext(FoodContext)
+ const {setFoods,setFoodsClone} = useContext(FoodContext)
 //====================== component functions============================ */
 
      /**
@@ -66,8 +66,10 @@ export const FoodCategory = ({categories=[]})=>{
             const response = await api.get('products',params);
 
             //this is what causing the button outline error apparently
-            console.log(response.data)
             setFoods(response.data)
+
+            //re-set foods clone 
+            setFoodsClone(response.data)
            
         }
         catch(e){
@@ -94,7 +96,7 @@ export const FoodCategory = ({categories=[]})=>{
  
 
                    {categories.map((category,index)=>{
-                    let elementClass = (index === 0) ? "category-item category-item__selected" : "category-item";
+                    let elementClass = (index === 0) ? "category-item category-item__selecteds" : "category-item";
                     return(   
                     /********** category-item *******/
                     

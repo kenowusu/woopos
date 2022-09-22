@@ -4,8 +4,7 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies()
 
 
-//==================import images=======================//
-import LogoSvg from '../public/icons/logo.svg'; 
+//==================import images=======================//'; 
 import HomeSvg from '../public/icons/home.svg';
 import DashboardSvg from '../public/icons/dashboard.svg';
 import SettingSvg from '../public/icons/settings.svg';
