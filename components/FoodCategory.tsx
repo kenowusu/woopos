@@ -96,7 +96,7 @@ export const FoodCategory = ({categories=[]})=>{
  
 
                    {categories.map((category,index)=>{
-                    let elementClass = (index === 0) ? "category-item category-item__selecteds" : "category-item";
+                    let elementClass = (index === 0) ? "category-item category-item__selected" : "category-item";
                     return(   
                     /********** category-item *******/
                     
