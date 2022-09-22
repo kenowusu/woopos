@@ -36,8 +36,8 @@ export const MainMenu = ()=>{
 
                 <ul className='mainmenu-nav'>
                     <li  className='active'><Link href="/"><a><span className='img'><HomeSvg/></span><span className='text'>Home</span></a></Link></li>
-                    <li><Link href="#"><a><span className='img'><DashboardSvg/></span><span className='text'>Dashboard</span></a></Link></li>
-                    <li><Link href="#"><a><span className='img'><SettingSvg/></span><span className='text'>Settings</span></a></Link></li>
+                    {/* <li><Link href="#"><a><span className='img'><DashboardSvg/></span><span className='text'>Dashboard</span></a></Link></li>
+                    <li><Link href="#"><a><span className='img'><SettingSvg/></span><span className='text'>Settings</span></a></Link></li> */}
 
                 </ul>
             </div>

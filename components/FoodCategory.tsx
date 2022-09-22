@@ -48,13 +48,14 @@ export const FoodCategory = ({categories=[]})=>{
         const categoryId = target.getAttribute('category_id')
         
         //remove highlight from previous selected button
-        if(previousSelectBtn){
-            previousSelectBtn.classList.remove('category-item__selected')
-        }
+    
+        previousSelectBtn.classList.remove('category-item__selected')
+     
         //add highlight to current selected button
-        target.classList.add('category-item__selected')
+        //target.classList.add('category-item__selected')
         
-
+        console.log(previousSelectBtn)
+        console.log(target)
 
 
         // fetch foods with category Id

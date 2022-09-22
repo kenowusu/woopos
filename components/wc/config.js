@@ -13,7 +13,12 @@ const api = new WooCommerceRestApi({
     url: url,
     consumerKey: consumerKey,
     consumerSecret: consumerSecret,
-    version: "wc/v3"
+    version: "wc/v3",
+    axiosConfig:{
+      headers:{
+        "Content-Type": "application/json;charset=UTF-8"
+        }
+    }
   });
 
 
