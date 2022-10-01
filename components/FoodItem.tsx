@@ -10,7 +10,7 @@ export const FoodItem = ({food,addToOrder})=>{
             {/* food item group */}
             <div className="food-item-grp">
                 <div className="food-item-img">
-                <Image src={food.images[0].src || "public/images/no-image.jpg"} width={204} height={120} />
+                <Image src={food.images.length > 0 ? food.images[0].src : "/images/no-image.jpg"} width={204} height={120} />
                 </div>
                 <div className="food-item-name">{food.name}</div>
                 <div className="food-item-price">GHS {food.on_sale ? food.sale_price :food.regular_price}</div>    
