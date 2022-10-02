@@ -49,7 +49,7 @@ export const CategoryFoodsContainer = ({children})=>{
       quantity:1,
       name:currentFood.name,
       price:currentFood.regular_price,
-      image:currentFood.images[0].src
+      image: currentFood.images.length > 0 ? currentFood.images[0].src : '/images/no-image.jpg'
     }
     if(currentFood.on_sale){
       curOrder.price = currentFood.sale_price;

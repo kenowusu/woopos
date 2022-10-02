@@ -53,7 +53,7 @@ export const Login = ()=>{
                             value={username}
                             onChange={(e)=>setUsername(e.target.value)}
                             />
-                            <input type="text" placeholder="Enter password"
+                            <input type="password" placeholder="Enter password"
                                 value={password}
                                 onChange={(e)=>setPassword(e.target.value)}
                             />
