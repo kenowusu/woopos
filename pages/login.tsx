@@ -44,7 +44,9 @@ const LoginPage: NextPage = () => {
 
   <>
   <Head>
+    <link rel="icon" href="/images/favicon.ico" />
     <title>Login Basilic Pos</title>
+
   </Head>
     <Login/>
   </>

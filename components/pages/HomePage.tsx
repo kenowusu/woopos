@@ -21,6 +21,7 @@ export const HomePage = ()=>{
     return(
         <>
         <Head>
+          <link rel="icon" href="/images/favicon.ico" />
           <title>Basilic Pos</title>
         </Head>
         <FoodProvider>
