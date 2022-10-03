@@ -1,4 +1,4 @@
-const  cacheName = `site-cache-v1`;
+const  cacheName = `site-cache-v2`;
 
 
 
@@ -40,14 +40,19 @@ self.addEventListener('fetch',(event)=>{
 
             //update the cache with the newly fetched data
             //only clone GET requests 
-            if(event.request.method == "GET"){
+            //also block request coming from chrome extension
+            const requestUrl = getUrlBase(event.request.url)
+            const protocol = requestUrl.protocol;
+            const allowedRequest = ['http:','https:']
+            
+      
+            if(event.request.method == "GET" && allowedRequest.includes(protocol)){
                 await cache.put(event.request,response.clone())
             }
             
 
             // // return the original response for user to able to see
-            // return response;
-       
+
             return response;
         }
     }())
@@ -66,3 +71,13 @@ const deleteCache = async (key) => {
     const cachesToDelete = keyList.filter((key) => !cacheKeepList.includes(key));
     await Promise.all(cachesToDelete.map(deleteCache));
   };
+
+
+
+const getUrlBase = (url)=>{
+    try{
+       return  new URL(url)
+    }catch(e){
+        console.log(e)
+    }
+}
