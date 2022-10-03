@@ -1,6 +1,8 @@
 
 import { useContext, useEffect, useState } from 'react';
 import SearchIconSvg from '../public/icons/search.svg';
+import CloseIconSvg from '../public/icons/close.svg';
+
 import { FoodContext } from './contexts/foodContext';
 
 
@@ -57,13 +59,18 @@ export const BrandAndSearch = ()=>{
            
             {/* search input field */}
             <input type="text" className="topbar-search-box" 
+            value={searchKey}
             placeholder="search Menu"
             onChange={(e)=>setSearchKey(e.target.value)}
        
             />
 
             <div className="topbar-search-icon">
-              <SearchIconSvg/>
+              {/* */}
+             {searchKey.length < 1 || searchKey == "" ? 
+             <SearchIconSvg/>  : 
+             <div onClick={()=> setSearchKey('')}><CloseIconSvg/></div>
+             }
             </div>
           </div>
        </div>
