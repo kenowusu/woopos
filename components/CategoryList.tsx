@@ -49,9 +49,11 @@ export const CategoryList = ({categories=[]})=>{
         //get categoryId from target
         const categoryId = target.getAttribute('category_id')
         
+        console.log('got id')
         //remove highlight from previous selected button
     
         previousSelectBtn.classList.remove('category-item__selected')
+        console.log('changed color')
      
         //add highlight to current selected button
         target.classList.add('category-item__selected')
@@ -85,7 +87,7 @@ export const CategoryList = ({categories=[]})=>{
                     return(   
                     /********** category-item *******/
                     
-                    <button className={elementClass}  category_id={category.id} onClick={selectCategory} key={uuid()}>
+                    <button className={elementClass}  category_id={category.id} onClick={selectCategory} key={category.id}>
                         {/* /** category-item-img */}
                         <div className="category-item-img">
                             {/* if no image for category, show food svg icon */}
