@@ -6,6 +6,12 @@
     grid-template-rows: repeat((auto,auto));
     grid-column-gap:3%;
     grid-row-gap:20px;
+    overflow-y:auto;
+    max-height: 500px;
+    // border: 1px solid red;
+    padding-bottom:50px;
+
+
     
     }
     

@@ -28,7 +28,12 @@
 
 
 .order-items{
-    margin-bottom: auto;
+    margin-bottom: 30px;
+    // border: 1px solid red;
+    height:624px;
+    max-height: 243px;
+    overflow-y: auto;
+    padding-bottom:50px;
 }
 .order-item{
   display: flex;
