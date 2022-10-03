@@ -5,23 +5,23 @@ import api from "../wc/config";
 import { FoodContext } from "../contexts/foodContext";
 
 
-export const CategoryFoodsContainer = ({children})=>{
+export const FoodContainer = ({children})=>{
   const {
     foods,
     setFoods,
-    foodsClone,
     setFoodsClone,
     orders,
     setOrders,
     orderChanged,
     setOrderChanged,
     categoryId,
-    setCategoryId,
   } = useContext(FoodContext)
 
   
   
   const getFoods = async()=>{
+
+    setFoods([])
     if(categoryId != null){
       try{
         const params = {

@@ -15,9 +15,9 @@ import { FoodContext } from './contexts/foodContext';
 
 
 
-export const FoodCategory = ({categories=[]})=>{
+export const CategoryList = ({categories=[]})=>{
  /** use food context  */
- const {setFoods,setFoodsClone} = useContext(FoodContext)
+ const {setCategoryId} = useContext(FoodContext)
 //====================== component functions============================ */
 
      /**
@@ -27,7 +27,7 @@ export const FoodCategory = ({categories=[]})=>{
     const selectCategory = async(e)=>{
         
         //set foods empty to get loading effect
-        setFoods([])
+
         // get all  buttons with class category-item
         const previousSelectBtn = document.querySelector('.category-item.category-item__selected');
         
@@ -43,7 +43,9 @@ export const FoodCategory = ({categories=[]})=>{
             }
             target = target.parentNode;
          }
-        
+         
+
+       
         //get categoryId from target
         const categoryId = target.getAttribute('category_id')
         
@@ -52,29 +54,12 @@ export const FoodCategory = ({categories=[]})=>{
         previousSelectBtn.classList.remove('category-item__selected')
      
         //add highlight to current selected button
-        //target.classList.add('category-item__selected')
+        target.classList.add('category-item__selected')
         
-        console.log(previousSelectBtn)
-        console.log(target)
+        // return;
+        //fetch foods based on new categoryId
+        setCategoryId(categoryId)
 
-
-        // fetch foods with category Id
-        try{
-            const params = {
-               category : categoryId || undefined
-            }
-            const response = await api.get('products',params);
-
-            //this is what causing the button outline error apparently
-            setFoods(response.data)
-
-            //re-set foods clone 
-            setFoodsClone(response.data)
-           
-        }
-        catch(e){
-            console.log(e)
-        }
     
     }
 
@@ -91,11 +76,11 @@ export const FoodCategory = ({categories=[]})=>{
             <div className="category-items-container">
                 <div className="category-items">
 
-                    {categories.length === 0 ?  <CategorySkeleton/> :
-                   <>
+                    {categories.length < 1 ?  <CategorySkeleton/> :
+                  
  
 
-                   {categories.map((category,index)=>{
+                   categories.map((category,index)=>{
                     let elementClass = (index === 0) ? "category-item category-item__selected" : "category-item";
                     return(   
                     /********** category-item *******/
@@ -111,10 +96,10 @@ export const FoodCategory = ({categories=[]})=>{
                             {category.name}
                         </div>
                     </button>
-                    )})}
+                    )})
                   
                    
-                   </>
+                 
                   }
                 </div>
             </div>

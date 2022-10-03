@@ -18,7 +18,9 @@ export const FoodItem = ({food,addToOrder})=>{
 
             {/* category-food-option */}
             <div className="food-item-option" style={{marginTop:"auto"}}>
-                <button className="food-item-btn" food_id={food.id} onClick={addToOrder}>Add</button>
+                <button className="food-item-btn" food_id={food.id} 
+                // onClick={addToOrder}
+                >Add</button>
             </div>
        
         </div>    

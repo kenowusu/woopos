@@ -5,14 +5,13 @@ import Head from 'next/head';
 import { HomeLayout } from "../layouts/HomeLayout"
 import { MainMenu } from "../MainMenu"
 import { BrandAndSearch } from "../BrandAndSearch";
-import { MiddleLayoutCategory } from "../MiddleLayoutCategory";
 import { FoodList } from "../FoodList";
 import {Order} from "../Order";
 import { FoodProvider } from "../contexts/foodContext";
-import { CategoryFoodsContainer } from "../containers/CategoryFoodsContainer";
+import { FoodContainer} from "../containers/FoodContainer";
 import { Receipt } from "../Receipt";
 import { CategoryContainer } from "../containers/CategoryContainer";
-import { FoodCategory } from "../FoodCategory";
+import { CategoryList } from "../CategoryList";
 
 
 
@@ -31,13 +30,15 @@ export const HomePage = ()=>{
             <HomeLayout>
               <MainMenu/>
               <BrandAndSearch/>
+
+              
               <CategoryContainer>
-                  <FoodCategory/>
+                  <CategoryList/>
               </CategoryContainer>
 
-              <CategoryFoodsContainer>
+              <FoodContainer>
                 <FoodList/>
-              </CategoryFoodsContainer>
+              </FoodContainer>
              
               <Order/>
               <Receipt/>
