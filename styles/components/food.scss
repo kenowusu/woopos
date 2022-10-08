@@ -31,8 +31,11 @@
     }
     /******food-item-grp********/
     .food-item-grp{
-        // position:absolute;
-        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+            
     }
     /*********food-item-img*********/
     .food-item-img{

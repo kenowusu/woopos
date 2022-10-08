@@ -36,7 +36,9 @@ export const FoodContainer = ({children})=>{
         }
     }
   }
-
+  const selectFoodVariant = (e)=>{
+    console.log('changed food variant')
+  }
   const addToOrder=(e)=>{
     const target = e.target;
     const foodId = target.getAttribute('food_id');
@@ -98,7 +100,7 @@ export const FoodContainer = ({children})=>{
       <>
         {React.Children.map(children,child=>{
           if(React.isValidElement(child)){
-            return React.cloneElement(child,{foods,addToOrder});
+            return React.cloneElement(child,{foods,addToOrder,selectFoodVariant});
           }
           
           return child;
