@@ -29,7 +29,8 @@ export const FoodContainer = ({children})=>{
     if(categoryId != null){
       try{
         const params = {
-          category : categoryId
+          category : categoryId,
+          per_page:100
        }
        const response = await api.get('products',params);
          setFoods(response.data)
