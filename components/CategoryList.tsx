@@ -49,11 +49,11 @@ export const CategoryList = ({categories=[]})=>{
         //get categoryId from target
         const categoryId = target.getAttribute('category_id')
         
-        console.log('got id')
+      
         //remove highlight from previous selected button
     
         previousSelectBtn.classList.remove('category-item__selected')
-        console.log('changed color')
+    
      
         //add highlight to current selected button
         target.classList.add('category-item__selected')

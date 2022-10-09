@@ -18,8 +18,6 @@ export const Login = ()=>{
 
     const login = (e)=>{
         e.preventDefault()
-        
-        console.log(cookies)
 
         if(username === cashierUsername && password === cashierPassword){
 
@@ -29,11 +27,8 @@ export const Login = ()=>{
             btn.style.backgroundColor = "#fcdeea";
             cookies.set('userauth','XKoFDBYHfr')
             window.location.href = "/"
-        }else{
-           
-            
-            setError("invalid username or password")
-           
+        }else{      
+            setError("invalid username or password")   
         }
     }
 
