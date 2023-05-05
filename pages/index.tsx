@@ -1,52 +1,32 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-
-
+import type { NextPage } from "next";
 
 /****************import *************/
-import api from '../components/wc/config';
-import { HomePage } from '../components/pages/HomePage';
-
+import { HomePage } from "../components/pages/HomePage";
 
 export async function getServerSideProps(context) {
   const cookies = context.req.cookies;
 
-  if(!cookies.userauth && cookies.userauth != 'XKoFDBYHfr'){
+  if (!cookies.userauth && cookies.userauth != "XKoFDBYHfr") {
     return {
       redirect: {
-        destination: '/login',
+        destination: "/login",
         permanent: false,
       },
-      props: {}
-    }
+      props: {},
+    };
   }
-  
+
   return {
-    props: {}
-  }
-
-  
+    props: {},
+  };
 }
-
-
 
 const Home: NextPage = () => {
-
-  
-
-
-
-
-
-
   return (
+    <>
+      <HomePage />
+    </>
+  );
+};
 
-  <>
-  <HomePage/>
-  </>
-  )
-}
-
-export default Home
+export default Home;
